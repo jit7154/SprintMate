@@ -1,0 +1,109 @@
+{
+  "sprint_id": 2,
+  "sprint_name": "Sprint 24",
+  "reference_date": "2026-11-17T00:00:00",
+  "sprint_status": {
+    "total_days": 10,
+    "days_elapsed": 8,
+    "days_remaining": 2,
+    "total_points": 52,
+    "completed_points": 18,
+    "expected_completion_ratio": 0.8,
+    "actual_completion_ratio": 0.346,
+    "is_behind_schedule": true
+  },
+  "anomalies": {
+    "blocked_issues": [
+      {
+        "key": "PAY-142",
+        "title": "Retry failed recurring payments engine",
+        "blocked_by": "PAY-139",
+        "days_blocked": 4,
+        "threshold_days": 3,
+        "severity": "HIGH",
+        "reason": "Issue PAY-142 has been blocked for 4 days (exceeds 3 day threshold)."
+      }
+    ],
+    "overdue_issues": [
+      {
+        "key": "PAY-139",
+        "title": "Stripe idempotency key race condition in webhook worker",
+        "due_date": "2026-11-15T00:00:00",
+        "days_overdue": 2,
+        "status": "IN_PROGRESS",
+        "severity": "CRITICAL",
+        "reason": "Issue PAY-139 is overdue by 2 days and still IN_PROGRESS."
+      }
+    ],
+    "overloaded_developers": [
+      {
+        "developer_id": 6,
+        "developer_name": "David Kim",
+        "capacity_points": 8,
+        "assigned_points": 16,
+        "overload_ratio": 2.0,
+        "severity": "HIGH",
+        "assigned_issues": [
+          "PAY-139",
+          "PAY-141",
+          "PAY-145",
+          "PAY-148"
+        ],
+        "reason": "Developer David Kim assigned 16 story points exceeding capacity of 8 points (200% load)."
+      }
+    ],
+    "stuck_pull_requests": [
+      {
+        "pr_number": 204,
+        "issue_key": "PAY-145",
+        "title": "PAY-145: Reconciliation report CSV parser and aggregator",
+        "age_days": 4,
+        "review_status": "PENDING_REVIEW",
+        "severity": "MEDIUM",
+        "reason": "PR #204 has been waiting for review for 4 days without activity."
+      },
+      {
+        "pr_number": 211,
+        "issue_key": "CORE-108",
+        "title": "CORE-108: Database connection pool sizing for worker tier",
+        "age_days": 2,
+        "ci_status": "FAILURE",
+        "failed_step": "test_pool_saturation",
+        "severity": "HIGH",
+        "reason": "PR #211 has failing CI run in step 'test_pool_saturation'."
+      }
+    ],
+    "dependency_chain_threats": [
+      {
+        "sprint_goal_issue": "PAY-150",
+        "dependency_chain": [
+          "PAY-150",
+          "PAY-142",
+          "PAY-139"
+        ],
+        "root_blocker": "PAY-139",
+        "severity": "CRITICAL",
+        "reason": "Sprint Goal issue PAY-150 is blocked by PAY-142, which is blocked by overdue issue PAY-139."
+      }
+    ]
+  },
+  "reassignment_ground_truth": {
+    "source_issue": "PAY-139",
+    "overloaded_developer": "David Kim",
+    "recommended_candidates": [
+      {
+        "developer_id": 7,
+        "developer_name": "Rachel Green",
+        "matching_skills": [
+          "payments",
+          "webhooks",
+          "python",
+          "stripe"
+        ],
+        "capacity_points": 7,
+        "assigned_points": 0,
+        "reason": "Rachel Green possesses direct payments and stripe skills with 7 points of free capacity."
+      }
+    ]
+  }
+}

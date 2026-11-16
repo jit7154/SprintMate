@@ -4,6 +4,10 @@ SprintMate is an AI assistant for engineering managers that investigates sprint 
 
 Risk scoring uses deterministic Python rules rather than LLM guesswork. Google ADK agents investigate anomalies, explain root causes with concrete issue and PR citations, and propose actionable reassignment proposals that require human approval, state re-check, and an immutable audit log.
 
+## Notice on Demo Data
+> [!NOTE]
+> All DevCore engineering telemetry (teams, developers, issues, pull requests, and CI test logs) is synthetic demo data generated deterministically for testing, evaluation, and portfolio demonstration.
+
 ## Project Structure
 
 ```
@@ -15,17 +19,36 @@ SprintMate/
 ├── Makefile                    # Developer commands (up, dev, test, eval, lint)
 ├── .github/                    # CI/CD workflows
 │   └── workflows/ci.yml        # GitHub Actions lint and test pipeline
-└── backend/                    # Python 3.11 + FastAPI backend service
-    ├── pyproject.toml          # Backend package dependencies and tool configuration
-    ├── Dockerfile              # Container specification for Cloud Run deployment
-    ├── app/                    # FastAPI application code
-    │   ├── main.py             # Application entrypoint and middleware
-    │   ├── config.py           # Typed settings loaded from environment
-    │   └── api/                # Thin API route handlers
-    │       └── health.py       # Health check route
-    └── tests/                  # Automated test suites
-        └── unit/               # Unit tests
-            └── test_health.py  # Health route verification
+├── backend/                    # Python 3.11 + FastAPI backend service
+│   ├── pyproject.toml          # Backend package dependencies and tool configuration
+│   ├── Dockerfile              # Container specification for Cloud Run deployment
+│   ├── migrations/             # SQL schema migrations
+│   │   └── 001_initial_schema.sql # Baseline schema for DevCore tables
+│   ├── app/                    # FastAPI application code
+│   │   ├── main.py             # Application entrypoint and middleware
+│   │   ├── config.py           # Typed settings loaded from environment
+│   │   ├── db.py               # Async SQLAlchemy engine, session, and ORM models
+│   │   ├── auth.py             # Role-based demo authorization (manager, developer)
+│   │   ├── schemas/            # Typed Pydantic v2 schemas
+│   │   ├── api/                # Thin API route handlers
+│   │   │   └── health.py       # Health check route
+│   │   └── services/           # Core domain services
+│   │       └── adapters/       # Tracker and VCS adapters (Base, Demo, GitHub Live)
+│   └── tests/                  # Automated test suites
+│       ├── conftest.py         # Pytest fixtures and connection cleanup
+│       └── unit/               # Unit tests
+│           ├── test_health.py  # Health route verification
+│           └── test_adapters.py# Demo tracker and GitHub adapter tests
+├── data/                       # Synthetic seed data and ingestion scripts
+│   ├── seed/                   # Raw DevCore JSON datasets and past incident notes
+│   │   ├── devcore.json        # 60 issues, 12 devs, 3 sprints, 30 PRs
+│   │   ├── ground_truth.json   # Seeded anomalies for eval benchmarking
+│   │   └── incidents/          # Past incident postmortem markdown files
+│   └── scripts/                # Seed generation and database population scripts
+│       ├── generate_seed.py    # Deterministic synthetic data generator
+│       └── load_seed.py        # Database migration & seed loader
+└── docs/                       # Project documentation
+    └── discovery.md            # Data dictionary, organization structure, and ground truth
 ```
 
 ## Quick Start

@@ -1,10 +1,14 @@
-.PHONY: up down dev test eval lint format
+.PHONY: up down dev test eval lint format seed
 
 up:
 	docker compose up -d
 
 down:
 	docker compose down
+
+seed:
+	python3.11 data/scripts/generate_seed.py
+	python3.11 data/scripts/load_seed.py
 
 dev:
 	python3.11 -m uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port 8001 --reload

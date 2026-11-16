@@ -1,0 +1,2406 @@
+{
+  "teams": [
+    {
+      "id": 1,
+      "name": "Core Platform",
+      "mission": "Scalable cloud infrastructure, authentication, database reliability, and developer tooling."
+    },
+    {
+      "id": 2,
+      "name": "Payments & Billing",
+      "mission": "Secure payment processing, recurring subscriptions, invoice reconciliation, and fraud prevention."
+    },
+    {
+      "id": 3,
+      "name": "Customer Experience",
+      "mission": "Frontend dashboards, real-time analytics, user onboarding, and notification delivery."
+    }
+  ],
+  "developers": [
+    {
+      "id": 1,
+      "name": "Alex Rivera",
+      "email": "alex.rivera@devcore.internal",
+      "role": "manager",
+      "team_id": 1,
+      "skills": [
+        "python",
+        "devops",
+        "postgres",
+        "fastapi",
+        "architecture"
+      ],
+      "weekly_capacity_points": 10
+    },
+    {
+      "id": 2,
+      "name": "Sarah Chen",
+      "email": "sarah.chen@devcore.internal",
+      "role": "developer",
+      "team_id": 1,
+      "skills": [
+        "devops",
+        "kubernetes",
+        "terraform",
+        "aws",
+        "docker"
+      ],
+      "weekly_capacity_points": 8
+    },
+    {
+      "id": 3,
+      "name": "Marcus Johnson",
+      "email": "marcus.johnson@devcore.internal",
+      "role": "developer",
+      "team_id": 1,
+      "skills": [
+        "python",
+        "redis",
+        "docker",
+        "fastapi"
+      ],
+      "weekly_capacity_points": 8
+    },
+    {
+      "id": 4,
+      "name": "Priya Sharma",
+      "email": "priya.sharma@devcore.internal",
+      "role": "developer",
+      "team_id": 1,
+      "skills": [
+        "python",
+        "fastapi",
+        "testing",
+        "postgres"
+      ],
+      "weekly_capacity_points": 6
+    },
+    {
+      "id": 5,
+      "name": "Elena Rostova",
+      "email": "elena.rostova@devcore.internal",
+      "role": "developer",
+      "team_id": 2,
+      "skills": [
+        "payments",
+        "python",
+        "postgres",
+        "stripe",
+        "webhooks"
+      ],
+      "weekly_capacity_points": 8
+    },
+    {
+      "id": 6,
+      "name": "David Kim",
+      "email": "david.kim@devcore.internal",
+      "role": "developer",
+      "team_id": 2,
+      "skills": [
+        "payments",
+        "security",
+        "go",
+        "python",
+        "idempotency"
+      ],
+      "weekly_capacity_points": 8
+    },
+    {
+      "id": 7,
+      "name": "Rachel Green",
+      "email": "rachel.green@devcore.internal",
+      "role": "developer",
+      "team_id": 2,
+      "skills": [
+        "payments",
+        "webhooks",
+        "python",
+        "fastapi",
+        "stripe"
+      ],
+      "weekly_capacity_points": 7
+    },
+    {
+      "id": 8,
+      "name": "Tom Bradley",
+      "email": "tom.bradley@devcore.internal",
+      "role": "developer",
+      "team_id": 2,
+      "skills": [
+        "python",
+        "testing",
+        "fastapi",
+        "sql"
+      ],
+      "weekly_capacity_points": 5
+    },
+    {
+      "id": 9,
+      "name": "Maya Lin",
+      "email": "maya.lin@devcore.internal",
+      "role": "developer",
+      "team_id": 3,
+      "skills": [
+        "react",
+        "typescript",
+        "tailwind",
+        "ui/ux",
+        "frontend"
+      ],
+      "weekly_capacity_points": 10
+    },
+    {
+      "id": 10,
+      "name": "Leo Martinez",
+      "email": "leo.martinez@devcore.internal",
+      "role": "developer",
+      "team_id": 3,
+      "skills": [
+        "react",
+        "typescript",
+        "recharts",
+        "dashboard"
+      ],
+      "weekly_capacity_points": 8
+    },
+    {
+      "id": 11,
+      "name": "Chloe Dupont",
+      "email": "chloe.dupont@devcore.internal",
+      "role": "developer",
+      "team_id": 3,
+      "skills": [
+        "react",
+        "python",
+        "fastapi",
+        "fullstack"
+      ],
+      "weekly_capacity_points": 8
+    },
+    {
+      "id": 12,
+      "name": "Samira Khan",
+      "email": "samira.khan@devcore.internal",
+      "role": "developer",
+      "team_id": 3,
+      "skills": [
+        "react",
+        "css",
+        "html",
+        "javascript"
+      ],
+      "weekly_capacity_points": 5
+    }
+  ],
+  "sprints": [
+    {
+      "id": 1,
+      "name": "Sprint 23",
+      "status": "COMPLETED",
+      "start_date": "2026-10-26T00:00:00",
+      "end_date": "2026-11-08T00:00:00",
+      "sprint_goal": "Upgrade database clusters and establish core metrics instrumentation.",
+      "total_days": 10,
+      "days_elapsed": 10
+    },
+    {
+      "id": 2,
+      "name": "Sprint 24",
+      "status": "ACTIVE",
+      "start_date": "2026-11-09T00:00:00",
+      "end_date": "2026-11-19T00:00:00",
+      "sprint_goal": "Launch automated payment retry engine and unified merchant webhook reconciliation.",
+      "total_days": 10,
+      "days_elapsed": 8
+    },
+    {
+      "id": 3,
+      "name": "Sprint 25",
+      "status": "UPCOMING",
+      "start_date": "2026-11-20T00:00:00",
+      "end_date": "2026-12-04T00:00:00",
+      "sprint_goal": "Deliver customer-facing billing analytics portal and self-serve webhooks.",
+      "total_days": 10,
+      "days_elapsed": 0
+    }
+  ],
+  "issues": [
+    {
+      "id": 1,
+      "key": "CORE-91",
+      "title": "Sprint 23 Baseline Work Item 1",
+      "description": "Completed deliverable for Sprint 23 milestone 1.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 1,
+      "assignee_id": 1,
+      "due_date": "2026-11-07T00:00:00",
+      "labels": [
+        "baseline",
+        "sprint-23"
+      ],
+      "created_at": "2026-10-26T00:00:00",
+      "updated_at": "2026-11-08T00:00:00"
+    },
+    {
+      "id": 2,
+      "key": "CORE-92",
+      "title": "Sprint 23 Baseline Work Item 2",
+      "description": "Completed deliverable for Sprint 23 milestone 2.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 1,
+      "assignee_id": 2,
+      "due_date": "2026-11-07T00:00:00",
+      "labels": [
+        "baseline",
+        "sprint-23"
+      ],
+      "created_at": "2026-10-26T00:00:00",
+      "updated_at": "2026-11-08T00:00:00"
+    },
+    {
+      "id": 3,
+      "key": "CORE-93",
+      "title": "Sprint 23 Baseline Work Item 3",
+      "description": "Completed deliverable for Sprint 23 milestone 3.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 1,
+      "assignee_id": 3,
+      "due_date": "2026-11-07T00:00:00",
+      "labels": [
+        "baseline",
+        "sprint-23"
+      ],
+      "created_at": "2026-10-26T00:00:00",
+      "updated_at": "2026-11-08T00:00:00"
+    },
+    {
+      "id": 4,
+      "key": "CORE-94",
+      "title": "Sprint 23 Baseline Work Item 4",
+      "description": "Completed deliverable for Sprint 23 milestone 4.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 1,
+      "assignee_id": 4,
+      "due_date": "2026-11-07T00:00:00",
+      "labels": [
+        "baseline",
+        "sprint-23"
+      ],
+      "created_at": "2026-10-26T00:00:00",
+      "updated_at": "2026-11-08T00:00:00"
+    },
+    {
+      "id": 5,
+      "key": "CORE-95",
+      "title": "Sprint 23 Baseline Work Item 5",
+      "description": "Completed deliverable for Sprint 23 milestone 5.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 1,
+      "assignee_id": 5,
+      "due_date": "2026-11-07T00:00:00",
+      "labels": [
+        "baseline",
+        "sprint-23"
+      ],
+      "created_at": "2026-10-26T00:00:00",
+      "updated_at": "2026-11-08T00:00:00"
+    },
+    {
+      "id": 6,
+      "key": "PAY-126",
+      "title": "Sprint 23 Baseline Work Item 6",
+      "description": "Completed deliverable for Sprint 23 milestone 6.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 1,
+      "assignee_id": 6,
+      "due_date": "2026-11-07T00:00:00",
+      "labels": [
+        "baseline",
+        "sprint-23"
+      ],
+      "created_at": "2026-10-26T00:00:00",
+      "updated_at": "2026-11-08T00:00:00"
+    },
+    {
+      "id": 7,
+      "key": "PAY-127",
+      "title": "Sprint 23 Baseline Work Item 7",
+      "description": "Completed deliverable for Sprint 23 milestone 7.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 1,
+      "assignee_id": 7,
+      "due_date": "2026-11-07T00:00:00",
+      "labels": [
+        "baseline",
+        "sprint-23"
+      ],
+      "created_at": "2026-10-26T00:00:00",
+      "updated_at": "2026-11-08T00:00:00"
+    },
+    {
+      "id": 8,
+      "key": "PAY-128",
+      "title": "Sprint 23 Baseline Work Item 8",
+      "description": "Completed deliverable for Sprint 23 milestone 8.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 1,
+      "assignee_id": 8,
+      "due_date": "2026-11-07T00:00:00",
+      "labels": [
+        "baseline",
+        "sprint-23"
+      ],
+      "created_at": "2026-10-26T00:00:00",
+      "updated_at": "2026-11-08T00:00:00"
+    },
+    {
+      "id": 9,
+      "key": "PAY-129",
+      "title": "Sprint 23 Baseline Work Item 9",
+      "description": "Completed deliverable for Sprint 23 milestone 9.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 1,
+      "assignee_id": 9,
+      "due_date": "2026-11-07T00:00:00",
+      "labels": [
+        "baseline",
+        "sprint-23"
+      ],
+      "created_at": "2026-10-26T00:00:00",
+      "updated_at": "2026-11-08T00:00:00"
+    },
+    {
+      "id": 10,
+      "key": "PAY-130",
+      "title": "Sprint 23 Baseline Work Item 10",
+      "description": "Completed deliverable for Sprint 23 milestone 10.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 1,
+      "assignee_id": 10,
+      "due_date": "2026-11-07T00:00:00",
+      "labels": [
+        "baseline",
+        "sprint-23"
+      ],
+      "created_at": "2026-10-26T00:00:00",
+      "updated_at": "2026-11-08T00:00:00"
+    },
+    {
+      "id": 11,
+      "key": "CX-191",
+      "title": "Sprint 23 Baseline Work Item 11",
+      "description": "Completed deliverable for Sprint 23 milestone 11.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 1,
+      "assignee_id": 11,
+      "due_date": "2026-11-07T00:00:00",
+      "labels": [
+        "baseline",
+        "sprint-23"
+      ],
+      "created_at": "2026-10-26T00:00:00",
+      "updated_at": "2026-11-08T00:00:00"
+    },
+    {
+      "id": 12,
+      "key": "CX-192",
+      "title": "Sprint 23 Baseline Work Item 12",
+      "description": "Completed deliverable for Sprint 23 milestone 12.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 1,
+      "assignee_id": 12,
+      "due_date": "2026-11-07T00:00:00",
+      "labels": [
+        "baseline",
+        "sprint-23"
+      ],
+      "created_at": "2026-10-26T00:00:00",
+      "updated_at": "2026-11-08T00:00:00"
+    },
+    {
+      "id": 13,
+      "key": "CX-193",
+      "title": "Sprint 23 Baseline Work Item 13",
+      "description": "Completed deliverable for Sprint 23 milestone 13.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 1,
+      "assignee_id": 1,
+      "due_date": "2026-11-07T00:00:00",
+      "labels": [
+        "baseline",
+        "sprint-23"
+      ],
+      "created_at": "2026-10-26T00:00:00",
+      "updated_at": "2026-11-08T00:00:00"
+    },
+    {
+      "id": 14,
+      "key": "CX-194",
+      "title": "Sprint 23 Baseline Work Item 14",
+      "description": "Completed deliverable for Sprint 23 milestone 14.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 1,
+      "assignee_id": 2,
+      "due_date": "2026-11-07T00:00:00",
+      "labels": [
+        "baseline",
+        "sprint-23"
+      ],
+      "created_at": "2026-10-26T00:00:00",
+      "updated_at": "2026-11-08T00:00:00"
+    },
+    {
+      "id": 15,
+      "key": "CX-195",
+      "title": "Sprint 23 Baseline Work Item 15",
+      "description": "Completed deliverable for Sprint 23 milestone 15.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 1,
+      "assignee_id": 3,
+      "due_date": "2026-11-07T00:00:00",
+      "labels": [
+        "baseline",
+        "sprint-23"
+      ],
+      "created_at": "2026-10-26T00:00:00",
+      "updated_at": "2026-11-08T00:00:00"
+    },
+    {
+      "id": 16,
+      "key": "PAY-139",
+      "title": "Stripe idempotency key race condition in webhook worker",
+      "description": "Specification for PAY-139: Stripe idempotency key race condition in webhook worker.",
+      "status": "IN_PROGRESS",
+      "story_points": 5,
+      "priority": "CRITICAL",
+      "sprint_id": 2,
+      "assignee_id": 6,
+      "due_date": "2026-11-15T00:00:00",
+      "labels": [
+        "payments",
+        "stripe",
+        "incident-followup"
+      ],
+      "created_at": "2026-11-09T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 17,
+      "key": "PAY-142",
+      "title": "Retry failed recurring payments engine",
+      "description": "Specification for PAY-142: Retry failed recurring payments engine.",
+      "status": "BLOCKED",
+      "story_points": 5,
+      "priority": "HIGH",
+      "sprint_id": 2,
+      "assignee_id": 5,
+      "due_date": "2026-11-18T00:00:00",
+      "labels": [
+        "payments",
+        "retry",
+        "core-engine"
+      ],
+      "created_at": "2026-11-10T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 18,
+      "key": "PAY-150",
+      "title": "Unified merchant webhook reconciliation - Sprint Goal deliverable",
+      "description": "Specification for PAY-150: Unified merchant webhook reconciliation - Sprint Goal deliverable.",
+      "status": "TO_DO",
+      "story_points": 8,
+      "priority": "CRITICAL",
+      "sprint_id": 2,
+      "assignee_id": 7,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "payments",
+        "sprint-goal",
+        "reconciliation"
+      ],
+      "created_at": "2026-11-09T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 19,
+      "key": "PAY-141",
+      "title": "Implement SEPA direct debit retry backoff",
+      "description": "Specification for PAY-141: Implement SEPA direct debit retry backoff.",
+      "status": "IN_PROGRESS",
+      "story_points": 5,
+      "priority": "HIGH",
+      "sprint_id": 2,
+      "assignee_id": 6,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "payments",
+        "sepa"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 20,
+      "key": "PAY-145",
+      "title": "Reconciliation report CSV parser and aggregator",
+      "description": "Specification for PAY-145: Reconciliation report CSV parser and aggregator.",
+      "status": "IN_REVIEW",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 6,
+      "due_date": "2026-11-18T00:00:00",
+      "labels": [
+        "payments",
+        "reports"
+      ],
+      "created_at": "2026-11-12T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 21,
+      "key": "PAY-148",
+      "title": "Webhook signature verification cache layer",
+      "description": "Specification for PAY-148: Webhook signature verification cache layer.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 6,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "payments",
+        "security"
+      ],
+      "created_at": "2026-11-13T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 22,
+      "key": "CORE-108",
+      "title": "Database connection pool sizing for worker tier",
+      "description": "Specification for CORE-108: Database connection pool sizing for worker tier.",
+      "status": "IN_REVIEW",
+      "story_points": 5,
+      "priority": "HIGH",
+      "sprint_id": 2,
+      "assignee_id": 2,
+      "due_date": "2026-11-18T00:00:00",
+      "labels": [
+        "infra",
+        "postgres",
+        "pool"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 23,
+      "key": "CORE-105",
+      "title": "Async Redis client migration for token caching",
+      "description": "Specification for CORE-105: Async Redis client migration for token caching.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 3,
+      "due_date": "2026-11-15T00:00:00",
+      "labels": [
+        "infra",
+        "redis"
+      ],
+      "created_at": "2026-11-10T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 24,
+      "key": "CORE-106",
+      "title": "Kubernetes HPA scaling triggers on webhook queue depth",
+      "description": "Specification for CORE-106: Kubernetes HPA scaling triggers on webhook queue depth.",
+      "status": "IN_PROGRESS",
+      "story_points": 5,
+      "priority": "HIGH",
+      "sprint_id": 2,
+      "assignee_id": 2,
+      "due_date": "2026-11-18T00:00:00",
+      "labels": [
+        "infra",
+        "k8s"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 25,
+      "key": "CORE-107",
+      "title": "OpenTelemetry distributed tracing for payment ingress",
+      "description": "Specification for CORE-107: OpenTelemetry distributed tracing for payment ingress.",
+      "status": "DONE",
+      "story_points": 5,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 1,
+      "due_date": "2026-11-16T00:00:00",
+      "labels": [
+        "observability",
+        "otel"
+      ],
+      "created_at": "2026-11-09T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 26,
+      "key": "CX-201",
+      "title": "Merchant payment retry history drawer in dashboard",
+      "description": "Specification for CX-201: Merchant payment retry history drawer in dashboard.",
+      "status": "DONE",
+      "story_points": 5,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 9,
+      "due_date": "2026-11-16T00:00:00",
+      "labels": [
+        "frontend",
+        "react"
+      ],
+      "created_at": "2026-11-09T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 27,
+      "key": "CX-202",
+      "title": "Reconciliation discrepancies alert banner component",
+      "description": "Specification for CX-202: Reconciliation discrepancies alert banner component.",
+      "status": "IN_PROGRESS",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 10,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "frontend",
+        "react"
+      ],
+      "created_at": "2026-11-12T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 28,
+      "key": "CX-203",
+      "title": "Export failed payments audit trail to CSV",
+      "description": "Specification for CX-203: Export failed payments audit trail to CSV.",
+      "status": "DONE",
+      "story_points": 5,
+      "priority": "LOW",
+      "sprint_id": 2,
+      "assignee_id": 11,
+      "due_date": "2026-11-15T00:00:00",
+      "labels": [
+        "fullstack",
+        "csv"
+      ],
+      "created_at": "2026-11-10T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 29,
+      "key": "CX-204",
+      "title": "Filter webhooks by processing latency and HTTP status",
+      "description": "Specification for CX-204: Filter webhooks by processing latency and HTTP status.",
+      "status": "IN_PROGRESS",
+      "story_points": 3,
+      "priority": "LOW",
+      "sprint_id": 2,
+      "assignee_id": 12,
+      "due_date": "2026-11-18T00:00:00",
+      "labels": [
+        "frontend",
+        "filters"
+      ],
+      "created_at": "2026-11-13T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 30,
+      "key": "CORE-115",
+      "title": "Sprint 24 refinement task: CORE module enhancement 15",
+      "description": "Specification for CORE-115: Sprint 24 refinement task: CORE module enhancement 15.",
+      "status": "TO_DO",
+      "story_points": 2,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 3,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "core",
+        "enhancement"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 31,
+      "key": "CORE-116",
+      "title": "Sprint 24 refinement task: CORE module enhancement 16",
+      "description": "Specification for CORE-116: Sprint 24 refinement task: CORE module enhancement 16.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 4,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "core",
+        "enhancement"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 32,
+      "key": "CORE-117",
+      "title": "Sprint 24 refinement task: CORE module enhancement 17",
+      "description": "Specification for CORE-117: Sprint 24 refinement task: CORE module enhancement 17.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 5,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "core",
+        "enhancement"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 33,
+      "key": "CORE-118",
+      "title": "Sprint 24 refinement task: CORE module enhancement 18",
+      "description": "Specification for CORE-118: Sprint 24 refinement task: CORE module enhancement 18.",
+      "status": "IN_PROGRESS",
+      "story_points": 2,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 7,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "core",
+        "enhancement"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 34,
+      "key": "CORE-119",
+      "title": "Sprint 24 refinement task: CORE module enhancement 19",
+      "description": "Specification for CORE-119: Sprint 24 refinement task: CORE module enhancement 19.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 7,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "core",
+        "enhancement"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 35,
+      "key": "CORE-120",
+      "title": "Sprint 24 refinement task: CORE module enhancement 20",
+      "description": "Specification for CORE-120: Sprint 24 refinement task: CORE module enhancement 20.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 8,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "core",
+        "enhancement"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 36,
+      "key": "PAY-121",
+      "title": "Sprint 24 refinement task: PAY module enhancement 21",
+      "description": "Specification for PAY-121: Sprint 24 refinement task: PAY module enhancement 21.",
+      "status": "TO_DO",
+      "story_points": 2,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 9,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "pay",
+        "enhancement"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 37,
+      "key": "PAY-122",
+      "title": "Sprint 24 refinement task: PAY module enhancement 22",
+      "description": "Specification for PAY-122: Sprint 24 refinement task: PAY module enhancement 22.",
+      "status": "IN_PROGRESS",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 10,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "pay",
+        "enhancement"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 38,
+      "key": "PAY-123",
+      "title": "Sprint 24 refinement task: PAY module enhancement 23",
+      "description": "Specification for PAY-123: Sprint 24 refinement task: PAY module enhancement 23.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 11,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "pay",
+        "enhancement"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 39,
+      "key": "PAY-124",
+      "title": "Sprint 24 refinement task: PAY module enhancement 24",
+      "description": "Specification for PAY-124: Sprint 24 refinement task: PAY module enhancement 24.",
+      "status": "DONE",
+      "story_points": 2,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 12,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "pay",
+        "enhancement"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 40,
+      "key": "PAY-125",
+      "title": "Sprint 24 refinement task: PAY module enhancement 25",
+      "description": "Specification for PAY-125: Sprint 24 refinement task: PAY module enhancement 25.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 1,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "pay",
+        "enhancement"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 41,
+      "key": "CX-126",
+      "title": "Sprint 24 refinement task: CX module enhancement 26",
+      "description": "Specification for CX-126: Sprint 24 refinement task: CX module enhancement 26.",
+      "status": "IN_PROGRESS",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 2,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "cx",
+        "enhancement"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 42,
+      "key": "CX-127",
+      "title": "Sprint 24 refinement task: CX module enhancement 27",
+      "description": "Specification for CX-127: Sprint 24 refinement task: CX module enhancement 27.",
+      "status": "TO_DO",
+      "story_points": 2,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 3,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "cx",
+        "enhancement"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 43,
+      "key": "CX-128",
+      "title": "Sprint 24 refinement task: CX module enhancement 28",
+      "description": "Specification for CX-128: Sprint 24 refinement task: CX module enhancement 28.",
+      "status": "DONE",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 4,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "cx",
+        "enhancement"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 44,
+      "key": "CX-129",
+      "title": "Sprint 24 refinement task: CX module enhancement 29",
+      "description": "Specification for CX-129: Sprint 24 refinement task: CX module enhancement 29.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 5,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "cx",
+        "enhancement"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 45,
+      "key": "CX-130",
+      "title": "Sprint 24 refinement task: CX module enhancement 30",
+      "description": "Specification for CX-130: Sprint 24 refinement task: CX module enhancement 30.",
+      "status": "IN_PROGRESS",
+      "story_points": 2,
+      "priority": "MEDIUM",
+      "sprint_id": 2,
+      "assignee_id": 7,
+      "due_date": "2026-11-19T00:00:00",
+      "labels": [
+        "cx",
+        "enhancement"
+      ],
+      "created_at": "2026-11-11T00:00:00",
+      "updated_at": "2026-11-16T20:00:00"
+    },
+    {
+      "id": 46,
+      "key": "CORE-211",
+      "title": "Sprint 25 Planned Roadmap: CORE Feature 1",
+      "description": "Planned deliverable for Sprint 25.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 3,
+      "assignee_id": 1,
+      "due_date": "2026-12-02T00:00:00",
+      "labels": [
+        "planned",
+        "sprint-25"
+      ],
+      "created_at": "2026-11-17T00:00:00",
+      "updated_at": "2026-11-17T00:00:00"
+    },
+    {
+      "id": 47,
+      "key": "CORE-212",
+      "title": "Sprint 25 Planned Roadmap: CORE Feature 2",
+      "description": "Planned deliverable for Sprint 25.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 3,
+      "assignee_id": 2,
+      "due_date": "2026-12-02T00:00:00",
+      "labels": [
+        "planned",
+        "sprint-25"
+      ],
+      "created_at": "2026-11-17T00:00:00",
+      "updated_at": "2026-11-17T00:00:00"
+    },
+    {
+      "id": 48,
+      "key": "CORE-213",
+      "title": "Sprint 25 Planned Roadmap: CORE Feature 3",
+      "description": "Planned deliverable for Sprint 25.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 3,
+      "assignee_id": 3,
+      "due_date": "2026-12-02T00:00:00",
+      "labels": [
+        "planned",
+        "sprint-25"
+      ],
+      "created_at": "2026-11-17T00:00:00",
+      "updated_at": "2026-11-17T00:00:00"
+    },
+    {
+      "id": 49,
+      "key": "CORE-214",
+      "title": "Sprint 25 Planned Roadmap: CORE Feature 4",
+      "description": "Planned deliverable for Sprint 25.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 3,
+      "assignee_id": 4,
+      "due_date": "2026-12-02T00:00:00",
+      "labels": [
+        "planned",
+        "sprint-25"
+      ],
+      "created_at": "2026-11-17T00:00:00",
+      "updated_at": "2026-11-17T00:00:00"
+    },
+    {
+      "id": 50,
+      "key": "CORE-215",
+      "title": "Sprint 25 Planned Roadmap: CORE Feature 5",
+      "description": "Planned deliverable for Sprint 25.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 3,
+      "assignee_id": 5,
+      "due_date": "2026-12-02T00:00:00",
+      "labels": [
+        "planned",
+        "sprint-25"
+      ],
+      "created_at": "2026-11-17T00:00:00",
+      "updated_at": "2026-11-17T00:00:00"
+    },
+    {
+      "id": 51,
+      "key": "PAY-216",
+      "title": "Sprint 25 Planned Roadmap: PAY Feature 6",
+      "description": "Planned deliverable for Sprint 25.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 3,
+      "assignee_id": 6,
+      "due_date": "2026-12-02T00:00:00",
+      "labels": [
+        "planned",
+        "sprint-25"
+      ],
+      "created_at": "2026-11-17T00:00:00",
+      "updated_at": "2026-11-17T00:00:00"
+    },
+    {
+      "id": 52,
+      "key": "PAY-217",
+      "title": "Sprint 25 Planned Roadmap: PAY Feature 7",
+      "description": "Planned deliverable for Sprint 25.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 3,
+      "assignee_id": 7,
+      "due_date": "2026-12-02T00:00:00",
+      "labels": [
+        "planned",
+        "sprint-25"
+      ],
+      "created_at": "2026-11-17T00:00:00",
+      "updated_at": "2026-11-17T00:00:00"
+    },
+    {
+      "id": 53,
+      "key": "PAY-218",
+      "title": "Sprint 25 Planned Roadmap: PAY Feature 8",
+      "description": "Planned deliverable for Sprint 25.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 3,
+      "assignee_id": 8,
+      "due_date": "2026-12-02T00:00:00",
+      "labels": [
+        "planned",
+        "sprint-25"
+      ],
+      "created_at": "2026-11-17T00:00:00",
+      "updated_at": "2026-11-17T00:00:00"
+    },
+    {
+      "id": 54,
+      "key": "PAY-219",
+      "title": "Sprint 25 Planned Roadmap: PAY Feature 9",
+      "description": "Planned deliverable for Sprint 25.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 3,
+      "assignee_id": 9,
+      "due_date": "2026-12-02T00:00:00",
+      "labels": [
+        "planned",
+        "sprint-25"
+      ],
+      "created_at": "2026-11-17T00:00:00",
+      "updated_at": "2026-11-17T00:00:00"
+    },
+    {
+      "id": 55,
+      "key": "PAY-220",
+      "title": "Sprint 25 Planned Roadmap: PAY Feature 10",
+      "description": "Planned deliverable for Sprint 25.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 3,
+      "assignee_id": 10,
+      "due_date": "2026-12-02T00:00:00",
+      "labels": [
+        "planned",
+        "sprint-25"
+      ],
+      "created_at": "2026-11-17T00:00:00",
+      "updated_at": "2026-11-17T00:00:00"
+    },
+    {
+      "id": 56,
+      "key": "CX-221",
+      "title": "Sprint 25 Planned Roadmap: CX Feature 11",
+      "description": "Planned deliverable for Sprint 25.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 3,
+      "assignee_id": 11,
+      "due_date": "2026-12-02T00:00:00",
+      "labels": [
+        "planned",
+        "sprint-25"
+      ],
+      "created_at": "2026-11-17T00:00:00",
+      "updated_at": "2026-11-17T00:00:00"
+    },
+    {
+      "id": 57,
+      "key": "CX-222",
+      "title": "Sprint 25 Planned Roadmap: CX Feature 12",
+      "description": "Planned deliverable for Sprint 25.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 3,
+      "assignee_id": 12,
+      "due_date": "2026-12-02T00:00:00",
+      "labels": [
+        "planned",
+        "sprint-25"
+      ],
+      "created_at": "2026-11-17T00:00:00",
+      "updated_at": "2026-11-17T00:00:00"
+    },
+    {
+      "id": 58,
+      "key": "CX-223",
+      "title": "Sprint 25 Planned Roadmap: CX Feature 13",
+      "description": "Planned deliverable for Sprint 25.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 3,
+      "assignee_id": 1,
+      "due_date": "2026-12-02T00:00:00",
+      "labels": [
+        "planned",
+        "sprint-25"
+      ],
+      "created_at": "2026-11-17T00:00:00",
+      "updated_at": "2026-11-17T00:00:00"
+    },
+    {
+      "id": 59,
+      "key": "CX-224",
+      "title": "Sprint 25 Planned Roadmap: CX Feature 14",
+      "description": "Planned deliverable for Sprint 25.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 3,
+      "assignee_id": 2,
+      "due_date": "2026-12-02T00:00:00",
+      "labels": [
+        "planned",
+        "sprint-25"
+      ],
+      "created_at": "2026-11-17T00:00:00",
+      "updated_at": "2026-11-17T00:00:00"
+    },
+    {
+      "id": 60,
+      "key": "CX-225",
+      "title": "Sprint 25 Planned Roadmap: CX Feature 15",
+      "description": "Planned deliverable for Sprint 25.",
+      "status": "TO_DO",
+      "story_points": 3,
+      "priority": "MEDIUM",
+      "sprint_id": 3,
+      "assignee_id": 3,
+      "due_date": "2026-12-02T00:00:00",
+      "labels": [
+        "planned",
+        "sprint-25"
+      ],
+      "created_at": "2026-11-17T00:00:00",
+      "updated_at": "2026-11-17T00:00:00"
+    }
+  ],
+  "dependencies": [
+    {
+      "id": 1,
+      "blocker_issue_key": "PAY-139",
+      "blocked_issue_key": "PAY-142",
+      "relationship_type": "blocks"
+    },
+    {
+      "id": 2,
+      "blocker_issue_key": "PAY-142",
+      "blocked_issue_key": "PAY-150",
+      "relationship_type": "blocks"
+    }
+  ],
+  "issue_history": [
+    {
+      "id": 1,
+      "issue_id": 16,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "IN_PROGRESS",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-10T00:00:00"
+    },
+    {
+      "id": 2,
+      "issue_id": 17,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "BLOCKED",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-11T00:00:00"
+    },
+    {
+      "id": 3,
+      "issue_id": 17,
+      "field_name": "status",
+      "old_value": "IN_PROGRESS",
+      "new_value": "BLOCKED",
+      "changed_by": "Elena Rostova",
+      "changed_at": "2026-11-13T00:00:00"
+    },
+    {
+      "id": 4,
+      "issue_id": 18,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "TO_DO",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-10T00:00:00"
+    },
+    {
+      "id": 5,
+      "issue_id": 19,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "IN_PROGRESS",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 6,
+      "issue_id": 20,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "IN_REVIEW",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-13T00:00:00"
+    },
+    {
+      "id": 7,
+      "issue_id": 21,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "TO_DO",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-14T00:00:00"
+    },
+    {
+      "id": 8,
+      "issue_id": 22,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "IN_REVIEW",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 9,
+      "issue_id": 23,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "DONE",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-11T00:00:00"
+    },
+    {
+      "id": 10,
+      "issue_id": 24,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "IN_PROGRESS",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 11,
+      "issue_id": 25,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "DONE",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-10T00:00:00"
+    },
+    {
+      "id": 12,
+      "issue_id": 26,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "DONE",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-10T00:00:00"
+    },
+    {
+      "id": 13,
+      "issue_id": 27,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "IN_PROGRESS",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-13T00:00:00"
+    },
+    {
+      "id": 14,
+      "issue_id": 28,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "DONE",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-11T00:00:00"
+    },
+    {
+      "id": 15,
+      "issue_id": 29,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "IN_PROGRESS",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-14T00:00:00"
+    },
+    {
+      "id": 16,
+      "issue_id": 30,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "TO_DO",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 17,
+      "issue_id": 31,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "DONE",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 18,
+      "issue_id": 32,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "TO_DO",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 19,
+      "issue_id": 33,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "IN_PROGRESS",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 20,
+      "issue_id": 34,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "TO_DO",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 21,
+      "issue_id": 35,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "DONE",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 22,
+      "issue_id": 36,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "TO_DO",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 23,
+      "issue_id": 37,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "IN_PROGRESS",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 24,
+      "issue_id": 38,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "TO_DO",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 25,
+      "issue_id": 39,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "DONE",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 26,
+      "issue_id": 40,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "TO_DO",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 27,
+      "issue_id": 41,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "IN_PROGRESS",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 28,
+      "issue_id": 42,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "TO_DO",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 29,
+      "issue_id": 43,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "DONE",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 30,
+      "issue_id": 44,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "TO_DO",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    },
+    {
+      "id": 31,
+      "issue_id": 45,
+      "field_name": "status",
+      "old_value": "TO_DO",
+      "new_value": "IN_PROGRESS",
+      "changed_by": "Alex Rivera",
+      "changed_at": "2026-11-12T00:00:00"
+    }
+  ],
+  "pull_requests": [
+    {
+      "id": 1,
+      "pr_number": 204,
+      "repo": "DevCore/monorepo",
+      "title": "PAY-145: Reconciliation report CSV parser and aggregator",
+      "branch": "feature/PAY-145-reconciliation-parser",
+      "status": "OPEN",
+      "review_status": "PENDING_REVIEW",
+      "issue_key": "PAY-145",
+      "author_id": 6,
+      "requested_reviewers": [
+        5,
+        7
+      ],
+      "pr_created_at": "2026-11-13T00:00:00",
+      "pr_updated_at": "2026-11-13T00:00:00"
+    },
+    {
+      "id": 2,
+      "pr_number": 211,
+      "repo": "DevCore/monorepo",
+      "title": "CORE-108: Database connection pool sizing for worker tier",
+      "branch": "fix/CORE-108-pool-saturation",
+      "status": "OPEN",
+      "review_status": "PENDING_REVIEW",
+      "issue_key": "CORE-108",
+      "author_id": 2,
+      "requested_reviewers": [
+        1,
+        3
+      ],
+      "pr_created_at": "2026-11-15T00:00:00",
+      "pr_updated_at": "2026-11-16T18:00:00"
+    },
+    {
+      "id": 3,
+      "pr_number": 200,
+      "repo": "DevCore/monorepo",
+      "title": "CORE-105: Async Redis client migration",
+      "branch": "feature/core-105",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "CORE-105",
+      "author_id": 3,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-11-10T00:00:00",
+      "pr_updated_at": "2026-11-10T08:00:00"
+    },
+    {
+      "id": 4,
+      "pr_number": 201,
+      "repo": "DevCore/monorepo",
+      "title": "CORE-107: OpenTelemetry distributed tracing",
+      "branch": "feature/core-107",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "CORE-107",
+      "author_id": 1,
+      "requested_reviewers": [
+        2
+      ],
+      "pr_created_at": "2026-11-11T00:00:00",
+      "pr_updated_at": "2026-11-11T08:00:00"
+    },
+    {
+      "id": 5,
+      "pr_number": 202,
+      "repo": "DevCore/monorepo",
+      "title": "CX-201: Payment retry history drawer",
+      "branch": "feature/cx-201",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "CX-201",
+      "author_id": 9,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-11-12T00:00:00",
+      "pr_updated_at": "2026-11-12T08:00:00"
+    },
+    {
+      "id": 6,
+      "pr_number": 203,
+      "repo": "DevCore/monorepo",
+      "title": "CX-203: Export audit trail to CSV",
+      "branch": "feature/cx-203",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "CX-203",
+      "author_id": 11,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-11-13T00:00:00",
+      "pr_updated_at": "2026-11-13T08:00:00"
+    },
+    {
+      "id": 7,
+      "pr_number": 205,
+      "repo": "DevCore/monorepo",
+      "title": "CORE-106: K8s HPA scaling triggers on webhook queue",
+      "branch": "feature/core-106",
+      "status": "OPEN",
+      "review_status": "APPROVED",
+      "issue_key": "CORE-106",
+      "author_id": 2,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-11-16T00:00:00",
+      "pr_updated_at": "2026-11-16T08:00:00"
+    },
+    {
+      "id": 8,
+      "pr_number": 206,
+      "repo": "DevCore/monorepo",
+      "title": "CX-202: Reconciliation alert banner",
+      "branch": "feature/cx-202",
+      "status": "OPEN",
+      "review_status": "PENDING_REVIEW",
+      "issue_key": "CX-202",
+      "author_id": 10,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-11-16T00:00:00",
+      "pr_updated_at": "2026-11-16T08:00:00"
+    },
+    {
+      "id": 9,
+      "pr_number": 207,
+      "repo": "DevCore/monorepo",
+      "title": "CX-204: Filter webhooks by processing latency",
+      "branch": "feature/cx-204",
+      "status": "OPEN",
+      "review_status": "PENDING_REVIEW",
+      "issue_key": "CX-204",
+      "author_id": 12,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-11-16T00:00:00",
+      "pr_updated_at": "2026-11-16T08:00:00"
+    },
+    {
+      "id": 10,
+      "pr_number": 208,
+      "repo": "DevCore/monorepo",
+      "title": "PAY-141: SEPA direct debit retry backoff",
+      "branch": "feature/pay-141",
+      "status": "OPEN",
+      "review_status": "PENDING_REVIEW",
+      "issue_key": "PAY-141",
+      "author_id": 6,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-11-16T00:00:00",
+      "pr_updated_at": "2026-11-16T08:00:00"
+    },
+    {
+      "id": 11,
+      "pr_number": 151,
+      "repo": "DevCore/monorepo",
+      "title": "CORE-92: Historical sprint PR 151",
+      "branch": "feature/core-92-hist-151",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "CORE-92",
+      "author_id": 2,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-10-27T00:00:00",
+      "pr_updated_at": "2026-10-28T00:00:00"
+    },
+    {
+      "id": 12,
+      "pr_number": 152,
+      "repo": "DevCore/monorepo",
+      "title": "CORE-93: Historical sprint PR 152",
+      "branch": "feature/core-93-hist-152",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "CORE-93",
+      "author_id": 3,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-10-28T00:00:00",
+      "pr_updated_at": "2026-10-29T00:00:00"
+    },
+    {
+      "id": 13,
+      "pr_number": 153,
+      "repo": "DevCore/monorepo",
+      "title": "CORE-94: Historical sprint PR 153",
+      "branch": "feature/core-94-hist-153",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "CORE-94",
+      "author_id": 4,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-10-29T00:00:00",
+      "pr_updated_at": "2026-10-30T00:00:00"
+    },
+    {
+      "id": 14,
+      "pr_number": 154,
+      "repo": "DevCore/monorepo",
+      "title": "CORE-95: Historical sprint PR 154",
+      "branch": "feature/core-95-hist-154",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "CORE-95",
+      "author_id": 5,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-10-30T00:00:00",
+      "pr_updated_at": "2026-10-31T00:00:00"
+    },
+    {
+      "id": 15,
+      "pr_number": 155,
+      "repo": "DevCore/monorepo",
+      "title": "CORE-91: Historical sprint PR 155",
+      "branch": "feature/core-91-hist-155",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "CORE-91",
+      "author_id": 6,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-10-31T00:00:00",
+      "pr_updated_at": "2026-11-01T00:00:00"
+    },
+    {
+      "id": 16,
+      "pr_number": 156,
+      "repo": "DevCore/monorepo",
+      "title": "CORE-92: Historical sprint PR 156",
+      "branch": "feature/core-92-hist-156",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "CORE-92",
+      "author_id": 7,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-11-01T00:00:00",
+      "pr_updated_at": "2026-11-02T00:00:00"
+    },
+    {
+      "id": 17,
+      "pr_number": 157,
+      "repo": "DevCore/monorepo",
+      "title": "CORE-93: Historical sprint PR 157",
+      "branch": "feature/core-93-hist-157",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "CORE-93",
+      "author_id": 8,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-11-02T00:00:00",
+      "pr_updated_at": "2026-11-03T00:00:00"
+    },
+    {
+      "id": 18,
+      "pr_number": 158,
+      "repo": "DevCore/monorepo",
+      "title": "CORE-94: Historical sprint PR 158",
+      "branch": "feature/core-94-hist-158",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "CORE-94",
+      "author_id": 9,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-10-26T00:00:00",
+      "pr_updated_at": "2026-10-27T00:00:00"
+    },
+    {
+      "id": 19,
+      "pr_number": 159,
+      "repo": "DevCore/monorepo",
+      "title": "CORE-95: Historical sprint PR 159",
+      "branch": "feature/core-95-hist-159",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "CORE-95",
+      "author_id": 10,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-10-27T00:00:00",
+      "pr_updated_at": "2026-10-28T00:00:00"
+    },
+    {
+      "id": 20,
+      "pr_number": 160,
+      "repo": "DevCore/monorepo",
+      "title": "CORE-91: Historical sprint PR 160",
+      "branch": "feature/core-91-hist-160",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "CORE-91",
+      "author_id": 11,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-10-28T00:00:00",
+      "pr_updated_at": "2026-10-29T00:00:00"
+    },
+    {
+      "id": 21,
+      "pr_number": 161,
+      "repo": "DevCore/monorepo",
+      "title": "PAY-122: Historical sprint PR 161",
+      "branch": "feature/pay-122-hist-161",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "PAY-122",
+      "author_id": 12,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-10-29T00:00:00",
+      "pr_updated_at": "2026-10-30T00:00:00"
+    },
+    {
+      "id": 22,
+      "pr_number": 162,
+      "repo": "DevCore/monorepo",
+      "title": "PAY-123: Historical sprint PR 162",
+      "branch": "feature/pay-123-hist-162",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "PAY-123",
+      "author_id": 1,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-10-30T00:00:00",
+      "pr_updated_at": "2026-10-31T00:00:00"
+    },
+    {
+      "id": 23,
+      "pr_number": 163,
+      "repo": "DevCore/monorepo",
+      "title": "PAY-124: Historical sprint PR 163",
+      "branch": "feature/pay-124-hist-163",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "PAY-124",
+      "author_id": 2,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-10-31T00:00:00",
+      "pr_updated_at": "2026-11-01T00:00:00"
+    },
+    {
+      "id": 24,
+      "pr_number": 164,
+      "repo": "DevCore/monorepo",
+      "title": "PAY-125: Historical sprint PR 164",
+      "branch": "feature/pay-125-hist-164",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "PAY-125",
+      "author_id": 3,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-11-01T00:00:00",
+      "pr_updated_at": "2026-11-02T00:00:00"
+    },
+    {
+      "id": 25,
+      "pr_number": 165,
+      "repo": "DevCore/monorepo",
+      "title": "PAY-121: Historical sprint PR 165",
+      "branch": "feature/pay-121-hist-165",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "PAY-121",
+      "author_id": 4,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-11-02T00:00:00",
+      "pr_updated_at": "2026-11-03T00:00:00"
+    },
+    {
+      "id": 26,
+      "pr_number": 166,
+      "repo": "DevCore/monorepo",
+      "title": "PAY-122: Historical sprint PR 166",
+      "branch": "feature/pay-122-hist-166",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "PAY-122",
+      "author_id": 5,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-10-26T00:00:00",
+      "pr_updated_at": "2026-10-27T00:00:00"
+    },
+    {
+      "id": 27,
+      "pr_number": 167,
+      "repo": "DevCore/monorepo",
+      "title": "PAY-123: Historical sprint PR 167",
+      "branch": "feature/pay-123-hist-167",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "PAY-123",
+      "author_id": 6,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-10-27T00:00:00",
+      "pr_updated_at": "2026-10-28T00:00:00"
+    },
+    {
+      "id": 28,
+      "pr_number": 168,
+      "repo": "DevCore/monorepo",
+      "title": "PAY-124: Historical sprint PR 168",
+      "branch": "feature/pay-124-hist-168",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "PAY-124",
+      "author_id": 7,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-10-28T00:00:00",
+      "pr_updated_at": "2026-10-29T00:00:00"
+    },
+    {
+      "id": 29,
+      "pr_number": 169,
+      "repo": "DevCore/monorepo",
+      "title": "PAY-125: Historical sprint PR 169",
+      "branch": "feature/pay-125-hist-169",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "PAY-125",
+      "author_id": 8,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-10-29T00:00:00",
+      "pr_updated_at": "2026-10-30T00:00:00"
+    },
+    {
+      "id": 30,
+      "pr_number": 170,
+      "repo": "DevCore/monorepo",
+      "title": "PAY-121: Historical sprint PR 170",
+      "branch": "feature/pay-121-hist-170",
+      "status": "MERGED",
+      "review_status": "APPROVED",
+      "issue_key": "PAY-121",
+      "author_id": 9,
+      "requested_reviewers": [
+        1
+      ],
+      "pr_created_at": "2026-10-30T00:00:00",
+      "pr_updated_at": "2026-10-31T00:00:00"
+    }
+  ],
+  "ci_runs": [
+    {
+      "id": 1,
+      "pr_id": 1,
+      "commit_hash": "a8f9c1e023456789012345678901234567890123",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 115,
+      "run_completed_at": "2026-11-13T00:15:00"
+    },
+    {
+      "id": 2,
+      "pr_id": 2,
+      "commit_hash": "d4e5f6a7b8c90123456789012345678901234567",
+      "status": "FAILURE",
+      "failed_step": "test_pool_saturation",
+      "run_duration_seconds": 182,
+      "run_completed_at": "2026-11-15T00:12:00"
+    },
+    {
+      "id": 3,
+      "pr_id": 3,
+      "commit_hash": "ca9d4a6777bd2a18e948077954c35df1824f8687",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 105,
+      "run_completed_at": "2026-11-10T00:20:00"
+    },
+    {
+      "id": 4,
+      "pr_id": 4,
+      "commit_hash": "9e7b9be15e43d00d5a912e14748fec4806878f7c",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 105,
+      "run_completed_at": "2026-11-11T00:20:00"
+    },
+    {
+      "id": 5,
+      "pr_id": 5,
+      "commit_hash": "82baeb36632732ca027b00322144fee13a43a909",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 105,
+      "run_completed_at": "2026-11-12T00:20:00"
+    },
+    {
+      "id": 6,
+      "pr_id": 6,
+      "commit_hash": "450d74ca4a53e9d4f7a3ff651a443af554133fb6",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 105,
+      "run_completed_at": "2026-11-13T00:20:00"
+    },
+    {
+      "id": 7,
+      "pr_id": 7,
+      "commit_hash": "9dfdfed3e2159d10460053015911ace277fcb1ac",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 105,
+      "run_completed_at": "2026-11-16T00:20:00"
+    },
+    {
+      "id": 8,
+      "pr_id": 8,
+      "commit_hash": "7120d341bed1da4d2e21b14d1ded792a6c860594",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 105,
+      "run_completed_at": "2026-11-16T00:20:00"
+    },
+    {
+      "id": 9,
+      "pr_id": 9,
+      "commit_hash": "488ac4a4195406ccd2d061597391fa299908b887",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 105,
+      "run_completed_at": "2026-11-16T00:20:00"
+    },
+    {
+      "id": 10,
+      "pr_id": 10,
+      "commit_hash": "7f31dbf03cfc656afce85ed08cd6b677c6fb4b26",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 105,
+      "run_completed_at": "2026-11-16T00:20:00"
+    },
+    {
+      "id": 11,
+      "pr_id": 11,
+      "commit_hash": "27fa6afa20e8f65d08e7383cbc80fbc237cd8204",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-10-27T00:25:00"
+    },
+    {
+      "id": 12,
+      "pr_id": 12,
+      "commit_hash": "668390ef267dd936a60b2739aecf28c93d2ba541",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-10-28T00:25:00"
+    },
+    {
+      "id": 13,
+      "pr_id": 13,
+      "commit_hash": "228ab2bfcbd75d8c62102c68c9980be97305cb9c",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-10-29T00:25:00"
+    },
+    {
+      "id": 14,
+      "pr_id": 14,
+      "commit_hash": "b7fe27dcf8ef7ce51a67cff2757f97963ab04cc2",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-10-30T00:25:00"
+    },
+    {
+      "id": 15,
+      "pr_id": 15,
+      "commit_hash": "35dfa7ccdb050be6071fe1ea877284cd489ddba2",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-10-31T00:25:00"
+    },
+    {
+      "id": 16,
+      "pr_id": 16,
+      "commit_hash": "3e3ec4be1dc7edf9aac3827828ce35d0db6d5709",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-11-01T00:25:00"
+    },
+    {
+      "id": 17,
+      "pr_id": 17,
+      "commit_hash": "69141938a1a5ef72700f87a43f8579cab5c9e4c7",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-11-02T00:25:00"
+    },
+    {
+      "id": 18,
+      "pr_id": 18,
+      "commit_hash": "0605b63d006f47902bc0c0556e97cfbcea0653da",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-10-26T00:25:00"
+    },
+    {
+      "id": 19,
+      "pr_id": 19,
+      "commit_hash": "304110a2b1e26a0c57ea5fda6beb75afce41e738",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-10-27T00:25:00"
+    },
+    {
+      "id": 20,
+      "pr_id": 20,
+      "commit_hash": "21ed52eb3ddc94d9dd75e2eac62df9b25f9749ba",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-10-28T00:25:00"
+    },
+    {
+      "id": 21,
+      "pr_id": 21,
+      "commit_hash": "7d3a90f7ec367051a6dcab18d2989496cd70b7fa",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-10-29T00:25:00"
+    },
+    {
+      "id": 22,
+      "pr_id": 22,
+      "commit_hash": "a5e44b883d9ee3ba9c2dc322a0541bc142ac7507",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-10-30T00:25:00"
+    },
+    {
+      "id": 23,
+      "pr_id": 23,
+      "commit_hash": "392ea81314f8c57b1b0a3dfd99762eeb94a84d31",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-10-31T00:25:00"
+    },
+    {
+      "id": 24,
+      "pr_id": 24,
+      "commit_hash": "b292de9de09a19a93a18e8e33cb8fee3cdff1405",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-11-01T00:25:00"
+    },
+    {
+      "id": 25,
+      "pr_id": 25,
+      "commit_hash": "fb3a6771f768bf004e039842253196e2b70d0420",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-11-02T00:25:00"
+    },
+    {
+      "id": 26,
+      "pr_id": 26,
+      "commit_hash": "be34d7013a5e6c75f5ebe0d18582370ea10b87b8",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-10-26T00:25:00"
+    },
+    {
+      "id": 27,
+      "pr_id": 27,
+      "commit_hash": "089ea022430ad8305b0046a807988e7a2996b804",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-10-27T00:25:00"
+    },
+    {
+      "id": 28,
+      "pr_id": 28,
+      "commit_hash": "213d38fcd9de64faaed4b94eee54a855c79397fb",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-10-28T00:25:00"
+    },
+    {
+      "id": 29,
+      "pr_id": 29,
+      "commit_hash": "f04b9a6fb30a49febfc935c1047d568eb02e4ddf",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-10-29T00:25:00"
+    },
+    {
+      "id": 30,
+      "pr_id": 30,
+      "commit_hash": "924b2b13581e0ad7f982fdcfaa69512eb90ace6a",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "run_duration_seconds": 90,
+      "run_completed_at": "2026-10-30T00:25:00"
+    }
+  ],
+  "incidents": [
+    {
+      "id": 1,
+      "incident_number": "INC-2024-01",
+      "title": "Stripe Webhook Delivery Timeout under High Load",
+      "service": "payment-service",
+      "date": "2024-03-12",
+      "content": "# Postmortem: INC-2024-01 Stripe Webhook Delivery Timeout\n\n**Date:** 2024-03-12  \n**Service:** payment-service / webhook-worker  \n**Severity:** SEV-2  \n\n## Summary\nAt 14:22 UTC, incoming Stripe payment intent webhooks began experiencing HTTP 504 timeouts. \nOver a 45-minute window, approximately 3,200 webhooks failed delivery and queued for retry.\n\n## Root Cause\nThe `WebhookEventConsumer` executed synchronous database lookups on `merchants.external_stripe_account_id` \nwithout a composite database index. Under concurrent load of 400 req/sec, worker threads exhausted \nthe database connection pool.\n\n## Remediation & Learnings\n1. Added missing composite index `idx_merchants_stripe_acct` on PostgreSQL.\n2. Migrated webhook payload ingestion to asynchronous Redis pub/sub buffer.\n3. Enforced strict 2.0-second timeout on all synchronous webhook validation handlers.\n"
+    },
+    {
+      "id": 2,
+      "incident_number": "INC-2024-02",
+      "title": "Idempotency Key Race Condition in Payment Retry Engine",
+      "service": "payment-service",
+      "date": "2024-06-18",
+      "content": "# Postmortem: INC-2024-02 Idempotency Key Race Condition\n\n**Date:** 2024-06-18  \n**Service:** payment-service / retry-worker  \n**Severity:** SEV-1  \n\n## Summary\nDouble billing occurred on 14 customer accounts during an automated retry spike following an upstream payment gateway blip.\n\n## Root Cause\nThe retry engine checked payment state (`SELECT status FROM payments WHERE idempotency_key = ?`) \nbefore inserting a transaction record, creating a Time-of-Check to Time-of-Use (TOCTOU) race condition. \nTwo worker containers picked up the same failed charge simultaneously before either wrote the lock record.\n\n## Remediation & Learnings\n1. Migrated idempotency validation to atomic PostgreSQL advisory locks (`pg_try_advisory_xact_lock`).\n2. Implemented mandatory distributed Redis lock with a 30-second TTL before executing any charge API call.\n3. Added automated reconciliation cron that flags duplicate Stripe transaction IDs.\n"
+    },
+    {
+      "id": 3,
+      "incident_number": "INC-2024-03",
+      "title": "Auth Token Cache Invalidation Cascading Failure",
+      "service": "auth-service",
+      "date": "2024-08-04",
+      "content": "# Postmortem: INC-2024-03 Auth Token Cache Invalidation Cascading Failure\n\n**Date:** 2024-08-04  \n**Service:** auth-service  \n**Severity:** SEV-2  \n\n## Summary\nA brief network partition caused Redis node eviction. All subsequent API gateway calls experienced cache misses, \ncausing a thundering herd on the Postgres auth database that increased p99 latency from 4ms to 1200ms.\n\n## Remediation & Learnings\n1. Implemented probabilistic early expiration (XFetch algorithm) on JWT verification cache.\n2. Added in-memory singleflight mutex in FastAPI middleware to deduplicate database verification requests.\n"
+    },
+    {
+      "id": 4,
+      "incident_number": "INC-2024-04",
+      "title": "Database Connection Pool Exhaustion in Worker Tier",
+      "service": "core-platform",
+      "date": "2024-09-22",
+      "content": "# Postmortem: INC-2024-04 Database Connection Pool Exhaustion in Worker Tier\n\n**Date:** 2024-09-22  \n**Service:** core-platform / worker-tier  \n**Severity:** SEV-2  \n\n## Summary\nBackground batch workers consumed all 100 available PostgreSQL connection slots, starving the public API servers.\n\n## Root Cause\nWhen an async worker encountered an unhandled network error, the context manager failed to close \nthe SQLAlchemy session, leaving connections in `IDLE in transaction` state indefinitely.\n\n## Remediation & Learnings\n1. Enforced `pool_pre_ping=True` and `pool_recycle=1800` in SQLAlchemy engine configuration.\n2. Added `idle_in_transaction_session_timeout = 30000` to PostgreSQL server settings.\n3. Installed PgBouncer in transaction pooling mode.\n"
+    },
+    {
+      "id": 5,
+      "incident_number": "INC-2024-05",
+      "title": "Payment Service Circuit Breaker Flapping",
+      "service": "payment-service",
+      "date": "2024-11-02",
+      "content": "# Postmortem: INC-2024-05 Payment Service Circuit Breaker Flapping\n\n**Date:** 2024-11-02  \n**Service:** payment-service  \n**Severity:** SEV-3  \n\n## Summary\nPayment gateway circuit breaker tripped 14 times in 3 hours despite 98.5% upstream availability.\n\n## Root Cause\nCircuit breaker error rate threshold was configured to 5% with a 10-request sliding window. \nA burst of 2 malformed requests from a single client caused the entire gateway to reject healthy payments.\n\n## Remediation & Learnings\n1. Increased minimum evaluation volume from 10 requests to 100 requests.\n2. Separated client error 4xx from upstream 5xx in circuit breaker trip calculation.\n"
+    }
+  ]
+}
