@@ -1,11 +1,5 @@
 from datetime import datetime
 
-import pytest
-from httpx import ASGITransport, AsyncClient
-
-from app.db import async_session_maker
-from app.main import app
-from app.services.adapters import get_tracker_adapter, get_vcs_adapter
 from app.services.risk.rules import (
     check_blocked_issues,
     check_completion_lag,
@@ -21,151 +15,254 @@ from app.services.risk.workload import calculate_developer_workloads
 REF_DATE = datetime(2026, 11, 17, 0, 0, 0)
 
 
-@pytest.mark.asyncio
-async def test_deterministic_rules_on_seeded_data():
-    async with async_session_maker() as session:
-        tracker = get_tracker_adapter(session)
-        vcs = get_vcs_adapter(session)
+def test_rule_blocked_issues_pure_unit():
+    issues = [
+        {
+            "key": "DEV-101",
+            "title": "Payment gateway timeout",
+            "status": "BLOCKED",
+            "story_points": 5,
+            "priority": "HIGH",
+            "updated_at": "2026-11-13T00:00:00",
+            "history": [
+                {
+                    "field_name": "status",
+                    "new_value": "BLOCKED",
+                    "changed_at": "2026-11-13T00:00:00",
+                }
+            ],
+        },
+        {
+            "key": "DEV-102",
+            "title": "Update README",
+            "status": "BLOCKED",
+            "story_points": 1,
+            "priority": "LOW",
+            "updated_at": "2026-11-16T12:00:00",  # Blocked only 0.5 days
+            "history": [],
+        },
+    ]
 
-        sprint = await tracker.get_sprint()
-        assert sprint is not None
-
-        issues = await tracker.list_issues(sprint_id=sprint["id"])
-        prs = await vcs.list_pull_requests()
-        devs = await tracker.list_developers()
-
-        detailed_issues = []
-        for issue in issues:
-            det = await tracker.get_issue(issue["key"])
-            detailed_issues.append(det or issue)
-
-        # 1. Blocked Issues Rule
-        blocked_findings = check_blocked_issues(detailed_issues, now=REF_DATE)
-        assert len(blocked_findings) >= 1
-        blocked_keys = [f.affected_keys[0] for f in blocked_findings]
-        assert "PAY-142" in blocked_keys
-        pay_142_finding = next(
-            f for f in blocked_findings if "PAY-142" in f.affected_keys
-        )
-        assert pay_142_finding.metadata["days_blocked"] == 4
-        assert pay_142_finding.metadata["threshold_days"] == 3
-
-        # 2. Overdue Issues Rule
-        overdue_findings = check_overdue_issues(detailed_issues, now=REF_DATE)
-        assert len(overdue_findings) >= 1
-        overdue_keys = [f.affected_keys[0] for f in overdue_findings]
-        assert "PAY-139" in overdue_keys
-        pay_139_finding = next(
-            f for f in overdue_findings if "PAY-139" in f.affected_keys
-        )
-        assert pay_139_finding.severity == "CRITICAL"
-        assert pay_139_finding.metadata["days_overdue"] == 2
-
-        # 3. PR No Review Rule
-        pr_review_findings = check_pr_no_review(prs)
-        assert any("PR #204" in f.affected_keys for f in pr_review_findings)
-        pr_204_finding = next(
-            f for f in pr_review_findings if "PR #204" in f.affected_keys
-        )
-        assert pr_204_finding.metadata["age_days"] >= 3
-
-        # 4. PR Failing CI Rule
-        pr_ci_findings = check_pr_failing_ci(prs)
-        assert any("PR #211" in f.affected_keys for f in pr_ci_findings)
-        pr_211_finding = next(f for f in pr_ci_findings if "PR #211" in f.affected_keys)
-        assert pr_211_finding.metadata["failed_step"] == "test_pool_saturation"
-
-        # 5. Developer Overload Rule
-        workloads = calculate_developer_workloads(devs, detailed_issues)
-        overload_findings = check_developer_overload(workloads)
-        assert len(overload_findings) >= 1
-        assert any("David Kim" in f.affected_keys for f in overload_findings)
-        dk_finding = next(
-            f for f in overload_findings if "David Kim" in f.affected_keys
-        )
-        assert dk_finding.metadata["assigned_points"] == 16
-        assert dk_finding.metadata["capacity_points"] == 8
-        assert dk_finding.metadata["utilization_ratio"] == 2.0
-
-        # 6. Dependency Chain Threat Rule
-        dep_findings = check_dependency_chains(detailed_issues)
-        assert len(dep_findings) >= 1
-        goal_threat = next(f for f in dep_findings if "PAY-150" in f.affected_keys)
-        assert "PAY-142" in goal_threat.affected_keys
-        assert goal_threat.severity == "CRITICAL"
-
-        # 7. Velocity Completion Lag Rule
-        lag_findings = check_completion_lag(sprint, detailed_issues)
-        assert len(lag_findings) >= 1
-        lag_finding = lag_findings[0]
-        assert lag_finding.metadata["days_elapsed"] == 8
-        assert lag_finding.metadata["total_days"] == 10
-        assert lag_finding.metadata["lag_ratio"] > 0.40
-
-        # Full Scoring
-        evaluation = evaluate_sprint_risk(
-            sprint, detailed_issues, prs, devs, now=REF_DATE
-        )
-        assert evaluation.overall_score >= 80
-        assert evaluation.risk_level == "CRITICAL"
-        assert evaluation.blocked_issues_count >= 1
-        assert evaluation.overdue_issues_count >= 1
-        assert evaluation.stuck_prs_count >= 2
-        assert evaluation.overloaded_devs_count >= 1
-        assert len(evaluation.breakdown) == 6
-        assert len(evaluation.top_risks) >= 3
-        assert (
-            "PAY-142" in evaluation.explanation or "PAY-139" in evaluation.explanation
-        )
+    findings = check_blocked_issues(issues, now=REF_DATE, threshold_days=3)
+    assert len(findings) == 1
+    assert findings[0].affected_keys == ["DEV-101"]
+    assert findings[0].severity == "CRITICAL"
+    assert findings[0].metadata["days_blocked"] == 4
 
 
-@pytest.mark.asyncio
-async def test_sprint_api_endpoints():
-    transport = ASGITransport(app=app)
-    async with AsyncClient(transport=transport, base_url="http://test") as client:
-        # Sprints list
-        resp = await client.get("/api/sprints")
-        assert resp.status_code == 200
-        sprints = resp.json()
-        assert len(sprints) == 3
+def test_rule_overdue_issues_pure_unit():
+    issues = [
+        {
+            "key": "DEV-103",
+            "title": "Fix memory leak",
+            "status": "IN_PROGRESS",
+            "story_points": 8,
+            "due_date": "2026-11-15T00:00:00",
+        },
+        {
+            "key": "DEV-104",
+            "title": "Refactor styles",
+            "status": "DONE",
+            "story_points": 2,
+            "due_date": "2026-11-10T00:00:00",
+        },
+    ]
 
-        # Active sprint summary & risk
-        resp = await client.get("/api/sprints/active")
-        assert resp.status_code == 200
-        data = resp.json()
-        assert data["sprint"]["name"] == "Sprint 24"
-        assert data["risk_evaluation"]["risk_level"] in {"HIGH", "CRITICAL"}
-        assert data["risk_evaluation"]["overall_score"] > 50
+    findings = check_overdue_issues(issues, now=REF_DATE)
+    assert len(findings) == 1
+    assert findings[0].affected_keys == ["DEV-103"]
+    assert findings[0].severity == "CRITICAL"
+    assert findings[0].metadata["days_overdue"] == 2
 
-        # Burndown
-        resp = await client.get("/api/sprints/2/burndown")
-        assert resp.status_code == 200
-        burndown = resp.json()
-        assert len(burndown) == 11
-        assert burndown[0]["day"] == "Day 0"
-        assert burndown[0]["actual"] is not None
 
-        # Stuck pull requests
-        resp = await client.get("/api/pull-requests?stuck_only=true")
-        assert resp.status_code == 200
-        stuck_prs = resp.json()
-        assert len(stuck_prs) == 2
-        stuck_numbers = [p["pr_number"] for p in stuck_prs]
-        assert 204 in stuck_numbers
-        assert 211 in stuck_numbers
+def test_rule_pr_no_review_pure_unit():
+    prs = [
+        {
+            "pr_number": 301,
+            "title": "Add caching layer",
+            "status": "OPEN",
+            "review_status": "PENDING_REVIEW",
+            "age_days": 3,
+            "author_name": "Alice",
+            "issue_key": "DEV-105",
+        },
+        {
+            "pr_number": 302,
+            "title": "Fix typo",
+            "status": "OPEN",
+            "review_status": "APPROVED",
+            "age_days": 1,
+            "author_name": "Bob",
+            "issue_key": "DEV-106",
+        },
+    ]
 
-        # Single pull request
-        resp = await client.get("/api/pull-requests/211")
-        assert resp.status_code == 200
-        pr_211 = resp.json()
-        assert pr_211["latest_ci_status"] == "FAILURE"
-        assert len(pr_211["ci_runs"]) >= 1
+    findings = check_pr_no_review(prs)
+    assert len(findings) == 1
+    assert "PR #301" in findings[0].affected_keys
+    assert findings[0].metadata["age_days"] == 3
 
-        # Team developers workload
-        resp = await client.get("/api/team/developers")
-        assert resp.status_code == 200
-        devs = resp.json()
-        assert len(devs) == 12
-        dk = next(d for d in devs if d["name"] == "David Kim")
-        assert dk["assigned_points"] == 16
-        assert dk["is_overloaded"] is True
+
+def test_rule_pr_failing_ci_pure_unit():
+    prs = [
+        {
+            "pr_number": 303,
+            "title": "Implement rate limiting",
+            "status": "OPEN",
+            "latest_ci_status": "FAILURE",
+            "ci_runs": [
+                {
+                    "status": "FAILURE",
+                    "failed_step": "test_integration",
+                }
+            ],
+            "author_name": "Charlie",
+            "issue_key": "DEV-107",
+        },
+        {
+            "pr_number": 304,
+            "title": "Add health endpoint",
+            "status": "OPEN",
+            "latest_ci_status": "SUCCESS",
+            "ci_runs": [
+                {
+                    "status": "SUCCESS",
+                    "failed_step": None,
+                }
+            ],
+            "author_name": "Dana",
+            "issue_key": "DEV-108",
+        },
+    ]
+
+    findings = check_pr_failing_ci(prs)
+    assert len(findings) == 1
+    assert "PR #303" in findings[0].affected_keys
+    assert findings[0].metadata["failed_step"] == "test_integration"
+
+
+def test_workload_and_overload_pure_unit():
+    devs = [
+        {
+            "id": 1,
+            "name": "Alex Smith",
+            "role": "Senior Engineer",
+            "weekly_capacity_points": 8,
+            "skills": ["Python", "FastAPI"],
+        },
+        {
+            "id": 2,
+            "name": "Beth Jones",
+            "role": "Mid Engineer",
+            "weekly_capacity_points": 8,
+            "skills": ["React"],
+        },
+    ]
+    issues = [
+        {"key": "DEV-1", "assignee_id": 1, "story_points": 5, "status": "IN_PROGRESS"},
+        {"key": "DEV-2", "assignee_id": 1, "story_points": 8, "status": "IN_PROGRESS"},  # Total = 13
+        {"key": "DEV-3", "assignee_id": 2, "story_points": 3, "status": "IN_PROGRESS"},  # Total = 3
+    ]
+
+    workloads = calculate_developer_workloads(devs, issues)
+    alex_workload = next(w for w in workloads if w["id"] == 1)
+    assert alex_workload["assigned_points"] == 13
+    assert alex_workload["weekly_capacity_points"] == 8
+    assert alex_workload["utilization_ratio"] > 1.5
+    assert alex_workload["is_overloaded"] is True
+
+    findings = check_developer_overload(workloads)
+    assert len(findings) == 1
+    assert "Alex Smith" in findings[0].affected_keys
+
+
+def test_dependency_chain_and_lag_pure_unit():
+    issues = [
+        {
+            "key": "DEV-110",
+            "title": "Auth token refresh",
+            "status": "BLOCKED",
+            "labels": ["sprint-goal"],
+            "story_points": 5,
+            "blocked_by": ["DEV-109"],
+            "blocks": ["DEV-111"],
+        },
+        {
+            "key": "DEV-111",
+            "title": "OAuth provider integration",
+            "status": "IN_PROGRESS",
+            "labels": ["sprint-goal"],
+            "story_points": 8,
+            "blocked_by": ["DEV-110"],
+            "blocks": [],
+        },
+    ]
+
+    dep_findings = check_dependency_chains(issues)
+    assert len(dep_findings) >= 1
+    assert any("DEV-110" in f.affected_keys for f in dep_findings)
+
+    sprint = {
+        "id": 1,
+        "name": "Sprint 1",
+        "total_days": 10,
+        "days_elapsed": 8,
+        "sprint_goal": "OAuth Launch",
+    }
+    lag_findings = check_completion_lag(sprint, issues)
+    assert len(lag_findings) >= 1
+    assert lag_findings[0].metadata["days_elapsed"] == 8
+
+
+def test_evaluate_sprint_risk_pure_unit():
+    sprint = {
+        "id": 1,
+        "name": "Sprint 1",
+        "total_days": 10,
+        "days_elapsed": 8,
+        "sprint_goal": "Core stability",
+    }
+    issues = [
+        {
+            "key": "DEV-201",
+            "title": "Blocked auth bug",
+            "status": "BLOCKED",
+            "story_points": 8,
+            "priority": "HIGH",
+            "updated_at": "2026-11-10T00:00:00",
+            "history": [],
+            "blocked_by": [],
+            "blocks": [],
+            "labels": ["sprint-goal"],
+            "assignee_id": 1,
+            "assignee_name": "Dev One",
+        }
+    ]
+    prs = [
+        {
+            "pr_number": 501,
+            "title": "Fix auth",
+            "status": "OPEN",
+            "review_status": "PENDING_REVIEW",
+            "age_days": 4,
+            "latest_ci_status": "FAILURE",
+            "latest_ci_step": "test_auth",
+            "author_name": "Dev One",
+            "issue_key": "DEV-201",
+        }
+    ]
+    devs = [
+        {
+            "id": 1,
+            "name": "Dev One",
+            "role": "Engineer",
+            "weekly_capacity_points": 5,
+            "skills": ["Python"],
+        }
+    ]
+
+    evaluation = evaluate_sprint_risk(sprint, issues, prs, devs, now=REF_DATE)
+    assert evaluation.overall_score >= 50
+    assert evaluation.risk_level in {"HIGH", "CRITICAL"}
+    assert len(evaluation.breakdown) == 6
+    assert len(evaluation.top_risks) >= 1

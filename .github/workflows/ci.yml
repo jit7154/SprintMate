@@ -46,9 +46,20 @@ jobs:
         run: |
           ruff check backend
 
-      - name: Run Pytest
+      - name: Run Unit Tests (Fast, No Database)
+        run: |
+          pytest backend/tests/unit
+
+      - name: Run Database Migrations and Seed Loader
+        env:
+          DATABASE_URL: postgresql+asyncpg://postgres:postgres@localhost:5433/sprintmate
+        run: |
+          python backend/migrations/run_migrations.py
+          python data/scripts/load_seed.py
+
+      - name: Run Integration Tests
         env:
           DATABASE_URL: postgresql+asyncpg://postgres:postgres@localhost:5433/sprintmate
           DATA_MODE: demo
         run: |
-          pytest backend/tests
+          pytest backend/tests/integration
