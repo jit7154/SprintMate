@@ -41,12 +41,17 @@ SprintMate/
 │   │           ├── rules.py    # 7 deterministic risk rules
 │   │           ├── scoring.py  # Sprint risk score aggregation and breakdown
 │   │           └── workload.py # Developer capacity and overload analysis
+│   ├── mcp_server/             # Model Context Protocol (MCP) server
+│   │   ├── server.py           # MCPServer stdio entrypoint and tool registry
+│   │   ├── tools_jira.py       # Jira tools (search, issue, sprint, propose reassignment)
+│   │   └── tools_github.py     # GitHub tools (search PRs, PR details, CI runs)
 │   └── tests/                  # Automated test suites
 │       ├── conftest.py         # Pytest fixtures and connection cleanup
 │       └── unit/               # Unit tests
 │           ├── test_health.py  # Health route verification
 │           ├── test_adapters.py# Demo tracker and GitHub adapter tests
-│           └── test_risk_engine.py # Comprehensive risk engine verification
+│           ├── test_risk_engine.py # Comprehensive risk engine verification
+│           └── test_mcp_tools.py   # MCP tools execution and isolation tests
 ├── data/                       # Synthetic seed data and ingestion scripts
 │   ├── seed/                   # Raw DevCore JSON datasets and past incident notes
 │   │   ├── devcore.json        # 60 issues, 12 devs, 3 sprints, 30 PRs
