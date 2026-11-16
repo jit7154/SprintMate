@@ -31,14 +31,22 @@ SprintMate/
 │   │   ├── auth.py             # Role-based demo authorization (manager, developer)
 │   │   ├── schemas/            # Typed Pydantic v2 schemas
 │   │   ├── api/                # Thin API route handlers
-│   │   │   └── health.py       # Health check route
+│   │   │   ├── health.py       # Health check route
+│   │   │   ├── sprints.py      # Sprints, kanban issues, risk scores, burndown
+│   │   │   ├── pull_requests.py# Pull requests list and CI status
+│   │   │   └── team.py         # Developer capacity, workload, and skills
 │   │   └── services/           # Core domain services
-│   │       └── adapters/       # Tracker and VCS adapters (Base, Demo, GitHub Live)
+│   │       ├── adapters/       # Tracker and VCS adapters (Base, Demo, GitHub Live)
+│   │       └── risk/           # Deterministic risk engine
+│   │           ├── rules.py    # 7 deterministic risk rules
+│   │           ├── scoring.py  # Sprint risk score aggregation and breakdown
+│   │           └── workload.py # Developer capacity and overload analysis
 │   └── tests/                  # Automated test suites
 │       ├── conftest.py         # Pytest fixtures and connection cleanup
 │       └── unit/               # Unit tests
 │           ├── test_health.py  # Health route verification
-│           └── test_adapters.py# Demo tracker and GitHub adapter tests
+│           ├── test_adapters.py# Demo tracker and GitHub adapter tests
+│           └── test_risk_engine.py # Comprehensive risk engine verification
 ├── data/                       # Synthetic seed data and ingestion scripts
 │   ├── seed/                   # Raw DevCore JSON datasets and past incident notes
 │   │   ├── devcore.json        # 60 issues, 12 devs, 3 sprints, 30 PRs

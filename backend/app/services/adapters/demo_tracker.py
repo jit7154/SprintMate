@@ -66,7 +66,9 @@ class DemoTrackerAdapter(BaseTrackerAdapter):
         status: str | None = None,
         assignee_id: int | None = None,
     ) -> list[dict[str, Any]]:
-        stmt = select(Issue, Developer.name).outerjoin(Developer, Issue.assignee_id == Developer.id)
+        stmt = select(Issue, Developer.name).outerjoin(
+            Developer, Issue.assignee_id == Developer.id
+        )
         if sprint_id is not None:
             stmt = stmt.where(Issue.sprint_id == sprint_id)
         if status is not None:

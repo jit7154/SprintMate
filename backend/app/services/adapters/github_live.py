@@ -38,7 +38,9 @@ class GithubLiveAdapter(BaseVcsAdapter):
         if not self.repo:
             return []
 
-        state = "open" if status == "OPEN" else ("closed" if status == "CLOSED" else "all")
+        state = (
+            "open" if status == "OPEN" else ("closed" if status == "CLOSED" else "all")
+        )
         url = f"{self.base_url}/repos/{self.repo}/pulls?state={state}&per_page=50"
 
         async with httpx.AsyncClient() as client:
@@ -59,7 +61,9 @@ class GithubLiveAdapter(BaseVcsAdapter):
             if issue_key and extracted_key != issue_key:
                 continue
 
-            created_at_dt = datetime.fromisoformat(raw["created_at"].replace("Z", "+00:00"))
+            created_at_dt = datetime.fromisoformat(
+                raw["created_at"].replace("Z", "+00:00")
+            )
             age_days = (now.replace(tzinfo=created_at_dt.tzinfo) - created_at_dt).days
 
             prs.append(
@@ -104,7 +108,9 @@ class GithubLiveAdapter(BaseVcsAdapter):
         branch = raw.get("head", {}).get("ref", "")
         extracted_key = self._extract_issue_key(f"{title} {branch}")
         created_at_dt = datetime.fromisoformat(raw["created_at"].replace("Z", "+00:00"))
-        age_days = (datetime.utcnow().replace(tzinfo=created_at_dt.tzinfo) - created_at_dt).days
+        age_days = (
+            datetime.utcnow().replace(tzinfo=created_at_dt.tzinfo) - created_at_dt
+        ).days
 
         return {
             "id": raw["id"],

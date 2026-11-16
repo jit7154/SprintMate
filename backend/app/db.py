@@ -69,7 +69,9 @@ class Team(Base):
     name: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)
     mission: Mapped[str] = mapped_column(String(255), nullable=False)
 
-    developers: Mapped[list["Developer"]] = relationship("Developer", back_populates="team")
+    developers: Mapped[list["Developer"]] = relationship(
+        "Developer", back_populates="team"
+    )
 
 
 class Developer(Base):
@@ -79,7 +81,9 @@ class Developer(Base):
     name: Mapped[str] = mapped_column(String(100), nullable=False)
     email: Mapped[str] = mapped_column(String(150), unique=True, nullable=False)
     role: Mapped[str] = mapped_column(String(50), nullable=False)  # manager, developer
-    team_id: Mapped[int] = mapped_column(Integer, ForeignKey("teams.id"), nullable=False)
+    team_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("teams.id"), nullable=False
+    )
     skills: Mapped[list[str]] = mapped_column(JSON, default=list)
     weekly_capacity_points: Mapped[int] = mapped_column(Integer, default=8)
 
@@ -92,7 +96,9 @@ class Sprint(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
     name: Mapped[str] = mapped_column(String(100), nullable=False)
-    status: Mapped[str] = mapped_column(String(20), nullable=False, index=True)  # COMPLETED, ACTIVE, UPCOMING
+    status: Mapped[str] = mapped_column(
+        String(20), nullable=False, index=True
+    )  # COMPLETED, ACTIVE, UPCOMING
     start_date: Mapped[datetime] = mapped_column(DateTime, nullable=False)
     end_date: Mapped[datetime] = mapped_column(DateTime, nullable=False)
     sprint_goal: Mapped[str] = mapped_column(Text, nullable=False)
@@ -106,32 +112,48 @@ class Issue(Base):
     __tablename__ = "issues"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
-    key: Mapped[str] = mapped_column(String(20), unique=True, nullable=False, index=True)
+    key: Mapped[str] = mapped_column(
+        String(20), unique=True, nullable=False, index=True
+    )
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     description: Mapped[str] = mapped_column(Text, default="")
     status: Mapped[str] = mapped_column(
         String(30), nullable=False, index=True
     )  # TO_DO, IN_PROGRESS, IN_REVIEW, DONE, BLOCKED
     story_points: Mapped[int] = mapped_column(Integer, default=3)
-    priority: Mapped[str] = mapped_column(String(20), default="MEDIUM")  # LOW, MEDIUM, HIGH, CRITICAL
-    sprint_id: Mapped[int] = mapped_column(Integer, ForeignKey("sprints.id"), nullable=False)
-    assignee_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("developers.id"), nullable=True)
+    priority: Mapped[str] = mapped_column(
+        String(20), default="MEDIUM"
+    )  # LOW, MEDIUM, HIGH, CRITICAL
+    sprint_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("sprints.id"), nullable=False
+    )
+    assignee_id: Mapped[int | None] = mapped_column(
+        Integer, ForeignKey("developers.id"), nullable=True
+    )
     due_date: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     labels: Mapped[list[str]] = mapped_column(JSON, default=list)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
 
     sprint: Mapped[Sprint] = relationship("Sprint", back_populates="issues")
-    assignee: Mapped[Developer | None] = relationship("Developer", back_populates="issues")
-    history: Mapped[list["IssueHistory"]] = relationship("IssueHistory", back_populates="issue")
+    assignee: Mapped[Developer | None] = relationship(
+        "Developer", back_populates="issues"
+    )
+    history: Mapped[list["IssueHistory"]] = relationship(
+        "IssueHistory", back_populates="issue"
+    )
 
 
 class IssueDependency(Base):
     __tablename__ = "issue_dependencies"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
-    blocker_issue_key: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
-    blocked_issue_key: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
+    blocker_issue_key: Mapped[str] = mapped_column(
+        String(20), nullable=False, index=True
+    )
+    blocked_issue_key: Mapped[str] = mapped_column(
+        String(20), nullable=False, index=True
+    )
     relationship_type: Mapped[str] = mapped_column(String(50), default="blocks")
 
 
@@ -139,7 +161,9 @@ class IssueHistory(Base):
     __tablename__ = "issue_history"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
-    issue_id: Mapped[int] = mapped_column(Integer, ForeignKey("issues.id"), nullable=False)
+    issue_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("issues.id"), nullable=False
+    )
     field_name: Mapped[str] = mapped_column(String(50), nullable=False)
     old_value: Mapped[str | None] = mapped_column(String(255), nullable=True)
     new_value: Mapped[str | None] = mapped_column(String(255), nullable=True)
@@ -153,42 +177,60 @@ class PullRequest(Base):
     __tablename__ = "pull_requests"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
-    pr_number: Mapped[int] = mapped_column(Integer, unique=True, nullable=False, index=True)
+    pr_number: Mapped[int] = mapped_column(
+        Integer, unique=True, nullable=False, index=True
+    )
     repo: Mapped[str] = mapped_column(String(100), default="DevCore/monorepo")
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     branch: Mapped[str] = mapped_column(String(100), nullable=False)
-    status: Mapped[str] = mapped_column(String(20), default="OPEN")  # OPEN, MERGED, CLOSED
+    status: Mapped[str] = mapped_column(
+        String(20), default="OPEN"
+    )  # OPEN, MERGED, CLOSED
     review_status: Mapped[str] = mapped_column(
         String(30), default="PENDING_REVIEW"
     )  # PENDING_REVIEW, APPROVED, CHANGES_REQUESTED
     issue_key: Mapped[str | None] = mapped_column(String(20), nullable=True, index=True)
-    author_id: Mapped[int] = mapped_column(Integer, ForeignKey("developers.id"), nullable=False)
+    author_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("developers.id"), nullable=False
+    )
     requested_reviewers: Mapped[list[int]] = mapped_column(JSON, default=list)
     pr_created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     pr_updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
 
-    ci_runs: Mapped[list["CiRun"]] = relationship("CiRun", back_populates="pull_request")
+    ci_runs: Mapped[list["CiRun"]] = relationship(
+        "CiRun", back_populates="pull_request"
+    )
 
 
 class CiRun(Base):
     __tablename__ = "ci_runs"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
-    pr_id: Mapped[int] = mapped_column(Integer, ForeignKey("pull_requests.id"), nullable=False)
+    pr_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("pull_requests.id"), nullable=False
+    )
     commit_hash: Mapped[str] = mapped_column(String(40), nullable=False)
-    status: Mapped[str] = mapped_column(String(20), nullable=False)  # SUCCESS, FAILURE, RUNNING
+    status: Mapped[str] = mapped_column(
+        String(20), nullable=False
+    )  # SUCCESS, FAILURE, RUNNING
     failed_step: Mapped[str | None] = mapped_column(String(100), nullable=True)
     run_duration_seconds: Mapped[int] = mapped_column(Integer, default=120)
-    run_completed_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    run_completed_at: Mapped[datetime] = mapped_column(
+        DateTime, default=datetime.utcnow
+    )
 
-    pull_request: Mapped[PullRequest] = relationship("PullRequest", back_populates="ci_runs")
+    pull_request: Mapped[PullRequest] = relationship(
+        "PullRequest", back_populates="ci_runs"
+    )
 
 
 class Incident(Base):
     __tablename__ = "incidents"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
-    incident_number: Mapped[str] = mapped_column(String(50), unique=True, nullable=False)
+    incident_number: Mapped[str] = mapped_column(
+        String(50), unique=True, nullable=False
+    )
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     service: Mapped[str] = mapped_column(String(100), nullable=False)
     date: Mapped[str] = mapped_column(String(20), nullable=False)
@@ -201,7 +243,9 @@ class Proposal(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
     issue_key: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
     current_assignee_id: Mapped[int | None] = mapped_column(Integer, nullable=True)
-    proposed_assignee_id: Mapped[int] = mapped_column(Integer, ForeignKey("developers.id"), nullable=False)
+    proposed_assignee_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("developers.id"), nullable=False
+    )
     reason: Mapped[str] = mapped_column(Text, nullable=False)
     status: Mapped[str] = mapped_column(
         String(20), default="PENDING", index=True
@@ -215,14 +259,22 @@ class AuditLog(Base):
     __tablename__ = "audit_log"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
-    entity_type: Mapped[str] = mapped_column(String(50), nullable=False)  # proposal, issue
+    entity_type: Mapped[str] = mapped_column(
+        String(50), nullable=False
+    )  # proposal, issue
     entity_id: Mapped[str] = mapped_column(String(50), nullable=False)
-    action: Mapped[str] = mapped_column(String(50), nullable=False)  # approve, reject, execute, create
+    action: Mapped[str] = mapped_column(
+        String(50), nullable=False
+    )  # approve, reject, execute, create
     actor_id: Mapped[str] = mapped_column(String(100), nullable=False)
-    actor_role: Mapped[str] = mapped_column(String(50), nullable=False)  # manager, developer, system
+    actor_role: Mapped[str] = mapped_column(
+        String(50), nullable=False
+    )  # manager, developer, system
     before_state: Mapped[dict[str, Any] | None] = mapped_column(JSON, nullable=True)
     after_state: Mapped[dict[str, Any] | None] = mapped_column(JSON, nullable=True)
-    outcome: Mapped[str] = mapped_column(String(50), nullable=False)  # SUCCESS, REJECTED, STALE_REJECTED
+    outcome: Mapped[str] = mapped_column(
+        String(50), nullable=False
+    )  # SUCCESS, REJECTED, STALE_REJECTED
     timestamp: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
 
 
