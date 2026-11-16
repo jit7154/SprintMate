@@ -42,7 +42,7 @@
         "capacity_points": 8,
         "assigned_points": 16,
         "overload_ratio": 2.0,
-        "severity": "HIGH",
+        "severity": "CRITICAL",
         "assigned_issues": [
           "PAY-139",
           "PAY-141",
@@ -50,6 +50,41 @@
           "PAY-148"
         ],
         "reason": "Developer David Kim assigned 16 story points exceeding capacity of 8 points (200% load)."
+      },
+      {
+        "developer_id": 7,
+        "developer_name": "Rachel Green",
+        "capacity_points": 7,
+        "assigned_points": 15,
+        "overload_ratio": 2.14,
+        "severity": "CRITICAL",
+        "assigned_issues": [
+          "PAY-150",
+          "CORE-118",
+          "CORE-119",
+          "CX-130"
+        ],
+        "reason": "Developer Rachel Green assigned 15 story points exceeding capacity of 7 points (214% load)."
+      },
+      {
+        "developer_id": 2,
+        "developer_name": "Sarah Chen",
+        "capacity_points": 8,
+        "assigned_points": 13,
+        "overload_ratio": 1.63,
+        "severity": "CRITICAL",
+        "assigned_issues": [],
+        "reason": "Developer Sarah Chen assigned 13 story points exceeding capacity of 8 points (163% load)."
+      },
+      {
+        "developer_id": 5,
+        "developer_name": "Elena Rostova",
+        "capacity_points": 8,
+        "assigned_points": 11,
+        "overload_ratio": 1.38,
+        "severity": "HIGH",
+        "assigned_issues": [],
+        "reason": "Developer Elena Rostova assigned 11 story points exceeding capacity of 8 points (138% load)."
       }
     ],
     "stuck_pull_requests": [
