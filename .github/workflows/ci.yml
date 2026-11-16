@@ -63,3 +63,27 @@ jobs:
           DATA_MODE: demo
         run: |
           pytest backend/tests/integration
+
+  frontend-build:
+    name: Frontend TypeScript and Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Dependencies
+        run: |
+          cd frontend
+          npm ci || npm install
+
+      - name: Run TypeScript and Build
+        run: |
+          cd frontend
+          npm run build
