@@ -15,7 +15,7 @@ class Settings(BaseSettings):
 
     # LLM and Agent settings
     gemini_api_key: str = ""
-    gemini_model: str = "gemini-2.5-flash"
+    gemini_model: str = "gemini-3.5-flash-lite"
     data_mode: str = "demo"  # "demo" or "live"
     github_repo: str = ""
     github_token: str = ""

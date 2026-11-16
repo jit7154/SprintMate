@@ -1,10 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.assistant import router as assistant_router
 from app.api.health import router as health_router
 from app.api.pull_requests import router as pull_requests_router
 from app.api.sprints import router as sprints_router
 from app.api.team import router as team_router
+from app.api.usage import router as usage_router
 from app.config import settings
 
 app = FastAPI(
@@ -25,6 +27,8 @@ app.include_router(health_router, prefix="/api")
 app.include_router(sprints_router, prefix="/api")
 app.include_router(pull_requests_router, prefix="/api")
 app.include_router(team_router, prefix="/api")
+app.include_router(assistant_router, prefix="/api")
+app.include_router(usage_router, prefix="/api")
 
 
 @app.get("/")

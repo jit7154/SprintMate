@@ -34,13 +34,22 @@ SprintMate/
 │   │   │   ├── health.py       # Health check route
 │   │   │   ├── sprints.py      # Sprints, kanban issues, risk scores, burndown
 │   │   │   ├── pull_requests.py# Pull requests list and CI status
-│   │   │   └── team.py         # Developer capacity, workload, and skills
-│   │   └── services/           # Core domain services
-│   │       ├── adapters/       # Tracker and VCS adapters (Base, Demo, GitHub Live)
-│   │       └── risk/           # Deterministic risk engine
-│   │           ├── rules.py    # 7 deterministic risk rules
-│   │           ├── scoring.py  # Sprint risk score aggregation and breakdown
-│   │           └── workload.py # Developer capacity and overload analysis
+│   │   │   ├── team.py         # Developer capacity, workload, and skills
+│   │   │   ├── assistant.py    # Multi-agent investigation & standup generator
+│   │   │   └── usage.py        # Token, latency, and cost telemetry metrics
+│   │   ├── services/           # Core domain services
+│   │   │   ├── adapters/       # Tracker and VCS adapters (Base, Demo, GitHub Live)
+│   │   │   ├── risk/           # Deterministic risk engine
+│   │   │   │   ├── rules.py    # 7 deterministic risk rules
+│   │   │   │   ├── scoring.py  # Sprint risk score aggregation and breakdown
+│   │   │   │   └── workload.py # Developer capacity and overload analysis
+│   │   │   ├── standup/        # Standup generator combining data with AI summary
+│   │   │   │   └── builder.py  # Standup briefing builder
+│   │   │   └── observability/  # Agent request telemetry and cost tracking
+│   │   │       └── usage_logger.py # Request logger and metrics aggregator
+│   │   └── agents/             # Google ADK agent definitions
+│   │       ├── supervisor.py   # Root planning agent orchestrating investigations
+│   │       └── investigator.py # Sub-agent executing MCP tools with evidence citations
 │   ├── mcp_server/             # Model Context Protocol (MCP) server
 │   │   ├── server.py           # MCPServer stdio entrypoint and tool registry
 │   │   ├── tools_jira.py       # Jira tools (search, issue, sprint, propose reassignment)
@@ -51,7 +60,8 @@ SprintMate/
 │           ├── test_health.py  # Health route verification
 │           ├── test_adapters.py# Demo tracker and GitHub adapter tests
 │           ├── test_risk_engine.py # Comprehensive risk engine verification
-│           └── test_mcp_tools.py   # MCP tools execution and isolation tests
+│           ├── test_mcp_tools.py   # MCP tools execution and isolation tests
+│           └── test_agents.py      # ADK agent and standup verification
 ├── data/                       # Synthetic seed data and ingestion scripts
 │   ├── seed/                   # Raw DevCore JSON datasets and past incident notes
 │   │   ├── devcore.json        # 60 issues, 12 devs, 3 sprints, 30 PRs
