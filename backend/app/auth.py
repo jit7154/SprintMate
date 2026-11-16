@@ -1,12 +1,12 @@
 from collections.abc import Callable
 
-from fastapi import Header, HTTPException, status
+from fastapi import Depends, Header, HTTPException, status
+from pydantic import BaseModel
 
 
-class UserContext:
-    def __init__(self, user_id: str, role: str):
-        self.user_id = user_id
-        self.role = role.lower()
+class UserContext(BaseModel):
+    user_id: str
+    role: str
 
     @property
     def is_manager(self) -> bool:
@@ -28,7 +28,7 @@ def require_role(allowed_role: str) -> Callable:
     """Dependency that ensures caller has the exact authorized role."""
 
     async def role_checker(
-        user: UserContext = get_current_user,
+        user: UserContext = Depends(get_current_user),
     ) -> UserContext:
         if user.role != allowed_role.lower():
             raise HTTPException(

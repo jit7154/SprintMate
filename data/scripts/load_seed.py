@@ -28,6 +28,7 @@ from app.db import (
     async_session_maker,
     engine,
 )
+from sqlalchemy import text
 
 
 def parse_dt(dt_str: str | None) -> datetime | None:
@@ -201,6 +202,28 @@ async def load_seed_data(data: dict):
                 )
             )
 
+        await session.commit()
+
+        # Synchronize PostgreSQL serial sequences to prevent duplicate key errors on subsequent inserts
+        for table in [
+            "teams",
+            "developers",
+            "sprints",
+            "issues",
+            "issue_dependencies",
+            "issue_history",
+            "pull_requests",
+            "ci_runs",
+            "incidents",
+            "proposals",
+            "audit_log",
+            "usage_records",
+        ]:
+            await session.execute(
+                text(
+                    f"SELECT setval(pg_get_serial_sequence('{table}', 'id'), COALESCE((SELECT MAX(id) FROM {table}), 1))"
+                )
+            )
         await session.commit()
 
     print("Seed data successfully loaded into PostgreSQL.")
