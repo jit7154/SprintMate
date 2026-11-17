@@ -124,17 +124,12 @@ SprintMate/
 ├── data/                       # Synthetic seed data and ingestion scripts
 │   ├── seed/                   # Raw DevCore JSON datasets, ground truth, and incidents
 │   └── scripts/                # Deterministic seed generator and loader
-├── evals/                      # Quantitative evaluation benchmark suite
-│   ├── scenarios/              # 16 benchmark scenarios in JSON Lines format
-│   ├── run_risk_eval.py        # Precision, recall, and F1 risk benchmark
-│   ├── run_tool_eval.py        # MCP tool selection accuracy benchmark
-│   ├── run_agent_eval.py       # End-to-end multi-agent investigation grounding
-│   └── run_security_eval.py    # RBAC, concurrency state re-check, and injection tests
-└── docs/                       # Comprehensive documentation
-    ├── architecture.md         # Deep-dive system architecture and rationale
-    ├── discovery.md            # Data dictionary, organization structure, and ground truth
-    ├── eval-report.md          # Full empirical benchmark evaluation results
-    └── interview-notes.md      # Google Forward Deployed Engineer (FDE) interview prep
+└── evals/                      # Quantitative evaluation benchmark suite
+    ├── scenarios/              # 16 benchmark scenarios in JSON Lines format
+    ├── run_risk_eval.py        # Precision, recall, and F1 risk benchmark
+    ├── run_tool_eval.py        # MCP tool selection accuracy benchmark
+    ├── run_agent_eval.py       # End-to-end multi-agent investigation grounding
+    └── run_security_eval.py    # RBAC, concurrency state re-check, and injection tests
 ```
 
 ---
@@ -153,8 +148,6 @@ SprintMate was evaluated against the synthetic DevCore ground truth across 16 sc
 | **Agent Evidence Citation Grounding** | **100.0%** | $\ge 90.0\%$ | PASSED |
 | **Investigation Latency (p50)** | **1,840 ms** | $< 4,000\text{ ms}$ | PASSED |
 | **Inference Cost per Investigation** | **~$0.00085** | $< \$0.01$ | PASSED |
-
-*Full details and per-scenario breakdowns are documented in [docs/eval-report.md](docs/eval-report.md).*
 
 ---
 
